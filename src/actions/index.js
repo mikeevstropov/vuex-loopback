@@ -26,12 +26,6 @@ export function createActions({
   onSuccess,
 } = {}) {
 
-  // Create client.
-
-  client = typeof client === 'function'
-    ? client(...arguments)
-    : client;
-
   // Create extension.
 
   extension = typeof extension === 'function'

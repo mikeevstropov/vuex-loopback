@@ -28,7 +28,7 @@ export function createActions({
 
   // Create client.
 
-  client = typeof extension === 'function'
+  client = typeof client === 'function'
     ? client(...arguments)
     : client;
 

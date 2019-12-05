@@ -1,9 +1,11 @@
 import resetAction from './reset';
+import fetchPageAction from './fetch-page';
 import patchItemAction from './patch-item';
 import fetchItemAction from './fetch-item';
 import removeItemAction from './remove-item';
 import createItemAction from './create-item';
 import fetchItemsAction from './fetch-items';
+import searchItemsAction from './search-items';
 import putTempItemAction from './put-temp-item';
 import createTempItemAction from './create-temp-item';
 
@@ -67,6 +69,8 @@ export function createActions({
     REMOVE_ITEM: removeItemAction(options),
     CREATE_TEMP_ITEM: createTempItemAction(options),
     PUT_TEMP_ITEM: putTempItemAction(options),
+    SEARCH_ITEMS: searchItemsAction(options),
+    FETCH_PAGE: fetchPageAction(options),
 
     // Extension.
 

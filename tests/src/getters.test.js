@@ -5,7 +5,7 @@ describe('Getters checking.', () => {
   test('Can get "page".', () => {
 
     const state = {
-      offset: 20,
+      skip: 20,
       limit: 10,
     };
 

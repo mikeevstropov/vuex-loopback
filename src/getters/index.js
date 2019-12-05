@@ -8,7 +8,7 @@ export function createGetters({
   return {
     page(state) {
 
-      return Math.floor(state.offset / state.limit) + 1;
+      return Math.floor(state.skip / state.limit) + 1;
     },
     totalPages(state) {
 

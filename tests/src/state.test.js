@@ -7,7 +7,7 @@ describe('State checking.', () => {
     const state = createState();
 
     expect(state.item).toBeNull();
-    expect(state.temp).toBeNull();
+    expect(state.tempItem).toBeNull();
     expect(state.items).toBeArray();
     expect(state.skip).toBeNumber();
     expect(state.limit).toBeNumber();

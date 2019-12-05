@@ -10,7 +10,7 @@ export default function () {
   return function ({commit}) {
 
     commit('RESET_ITEM');
-    commit('RESET_TEMP');
+    commit('RESET_TEMP_ITEM');
     commit('RESET_ITEMS');
     commit('RESET_SKIP');
     commit('RESET_LIMIT');

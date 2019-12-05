@@ -17,9 +17,9 @@ describe('Checking action NEW_TEMP_ITEM.', () => {
 
     expect(commit.mock.calls.length).toBe(1);
 
-    // Update temp.
+    // Update temp item.
 
-    expect(commit.mock.calls[0][0]).toBe('SET_TEMP');
+    expect(commit.mock.calls[0][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[0][1]).toEqual(customerModel);
     expect(commit.mock.calls[0][1]).toBe(customer);
   });
@@ -43,9 +43,9 @@ describe('Checking action NEW_TEMP_ITEM.', () => {
 
     expect(commit.mock.calls.length).toBe(1);
 
-    // Update temp.
+    // Update temp item.
 
-    expect(commit.mock.calls[0][0]).toBe('SET_TEMP');
+    expect(commit.mock.calls[0][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[0][1]).not.toEqual(dummyModel);
     expect(commit.mock.calls[0][1]).toEqual(customerModel);
     expect(commit.mock.calls[0][1]).toBe(customer);

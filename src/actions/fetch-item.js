@@ -16,7 +16,7 @@ export default function ({
    */
   return async function (
     {state, commit},
-    {id, filter = {}, noTemp = false} = {},
+    {id, filter = {}, noTempItem = false} = {},
   ) {
 
     commit('SET_LOADING', true);
@@ -47,8 +47,8 @@ export default function ({
 
       const {data} = response;
 
-      if (!noTemp)
-        commit('SET_TEMP', data);
+      if (!noTempItem)
+        commit('SET_TEMP_ITEM', data);
 
       commit('SET_ITEM', data);
       commit('RESET_LOADING');

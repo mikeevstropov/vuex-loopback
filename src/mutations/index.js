@@ -33,13 +33,13 @@ export function createMutations({
 
       state.item = initialState.item;
     },
-    SET_TEMP(state, value) {
+    SET_TEMP_ITEM(state, value) {
 
-      state.temp = value || null;
+      state.tempItem = value || null;
     },
-    RESET_TEMP(state) {
+    RESET_TEMP_ITEM(state) {
 
-      state.temp = initialState.temp;
+      state.tempItem = initialState.tempItem;
     },
 
     // List.
@@ -158,12 +158,12 @@ export function createMutations({
         state.item.id === item.id
       ) state.item = _.cloneDeep(item);
 
-      // Update temp.
+      // Update temp item.
 
       if (
-        state.temp &&
-        state.temp.id === item.id
-      ) state.temp = _.cloneDeep(item);
+        state.tempItem &&
+        state.tempItem.id === item.id
+      ) state.tempItem = _.cloneDeep(item);
 
       // Update items.
 
@@ -186,12 +186,12 @@ export function createMutations({
         state.item.id === id
       ) state.item = initialState.item;
 
-      // Remove temp.
+      // Remove temp item.
 
       if (
-        state.temp &&
-        state.temp.id === id
-      ) state.temp = initialState.temp;
+        state.tempItem &&
+        state.tempItem.id === id
+      ) state.tempItem = initialState.tempItem;
 
       // Remove from items.
 

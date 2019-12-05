@@ -8,7 +8,7 @@ export function createState({
     // Single.
 
     item: null,
-    temp: null,
+    tempItem: null,
 
     // List.
 

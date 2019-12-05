@@ -13,7 +13,7 @@ export default function () {
     {filter = {}, existed = false, reset = false} = {},
   ) {
 
-    if (!state.temp)
+    if (!state.tempItem)
       throw new Error('No temp item to commit.');
 
     const action = existed
@@ -21,13 +21,13 @@ export default function () {
       : 'CREATE_ITEM';
 
     const item = await dispatch(action, {
-      id: state.temp.id,
-      data: state.temp,
+      id: state.tempItem.id,
+      data: state.tempItem,
       filter: filter,
     });
 
     if (reset)
-      commit('RESET_TEMP');
+      commit('RESET_TEMP_ITEM');
 
     return item;
   };

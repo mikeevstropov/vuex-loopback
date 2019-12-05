@@ -33,9 +33,9 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(commit.mock.calls[0][0]).toBe('SET_LOADING');
     expect(commit.mock.calls[0][1]).toBe(true);
 
-    // Update temp.
+    // Update temp item.
 
-    expect(commit.mock.calls[1][0]).toBe('SET_TEMP');
+    expect(commit.mock.calls[1][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[1][1]).toBe(customer);
 
     // Set item.
@@ -52,7 +52,7 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(customer.id).toBe(id);
   });
 
-  test('Can dispatch with "id" and "noTemp".', async () => {
+  test('Can dispatch with "id" and "noTempItem".', async () => {
 
     const action = fetchItemAction({
       client: api,
@@ -68,7 +68,7 @@ describe('Checking action FETCH_ITEM.', () => {
 
     const customer = await action(
       {state, commit},
-      {id, noTemp: true},
+      {id, noTempItem: true},
     );
 
     // Number of commits.
@@ -127,9 +127,9 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(commit.mock.calls[0][0]).toBe('SET_LOADING');
     expect(commit.mock.calls[0][1]).toBe(true);
 
-    // Update temp.
+    // Update temp item.
 
-    expect(commit.mock.calls[1][0]).toBe('SET_TEMP');
+    expect(commit.mock.calls[1][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[1][1]).toBe(customer);
 
     // Set item.
@@ -178,9 +178,9 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(commit.mock.calls[0][0]).toBe('SET_LOADING');
     expect(commit.mock.calls[0][1]).toBe(true);
 
-    // Update temp.
+    // Update temp item.
 
-    expect(commit.mock.calls[1][0]).toBe('SET_TEMP');
+    expect(commit.mock.calls[1][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[1][1]).toBe(customer);
 
     // Set item.
@@ -234,9 +234,9 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(commit.mock.calls[0][0]).toBe('SET_LOADING');
     expect(commit.mock.calls[0][1]).toBe(true);
 
-    // Update temp.
+    // Update temp item.
 
-    expect(commit.mock.calls[1][0]).toBe('SET_TEMP');
+    expect(commit.mock.calls[1][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[1][1]).toBe(customer);
 
     // Set item.
@@ -288,9 +288,9 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(commit.mock.calls[0][0]).toBe('SET_LOADING');
     expect(commit.mock.calls[0][1]).toBe(true);
 
-    // Update temp.
+    // Update temp item.
 
-    expect(commit.mock.calls[1][0]).toBe('SET_TEMP');
+    expect(commit.mock.calls[1][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[1][1]).toBe(customer);
 
     // Set item.

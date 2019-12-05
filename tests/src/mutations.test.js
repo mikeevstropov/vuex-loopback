@@ -15,7 +15,7 @@ describe('Mutations checking.', () => {
 
     const values = {
       'ITEM': {field: 'value'},
-      'TEMP': {a: 'b'},
+      'TEMP_ITEM': {a: 'b'},
       'ITEMS': [1, 2, 3],
       'SKIP': 10,
       'LIMIT': 40,
@@ -61,19 +61,19 @@ describe('Mutations checking.', () => {
     const updated = {id: 'first', key: 'b'};
 
     state.item = {...item};
-    state.temp = {...item};
+    state.tempItem = {...item};
     state.items = [{...item}];
 
     mutations['UPDATE_ITEM'](state, updated);
 
     expect(state.item.key).toBe(updated.key);
-    expect(state.temp.key).toBe(updated.key);
+    expect(state.tempItem.key).toBe(updated.key);
     expect(state.items[0].key).toBe(updated.key);
 
     mutations['REMOVE_ITEM'](state, updated.id);
 
     expect(state.item).toEqual(initial.item);
-    expect(state.temp).toEqual(initial.temp);
+    expect(state.tempItem).toEqual(initial.tempItem);
     expect(state.items).toBeEmpty();
   });
 

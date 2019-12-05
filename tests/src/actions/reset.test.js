@@ -6,7 +6,7 @@ describe('Checking action RESET.', () => {
 
     const mutations = [
       'RESET_ITEM',
-      'RESET_TEMP',
+      'RESET_TEMP_ITEM',
       'RESET_ITEMS',
       'RESET_SKIP',
       'RESET_LIMIT',

@@ -14,7 +14,7 @@ export default function ({model}) {
     const payloadModel = payload && payload.model;
     const item = _.cloneDeep(payloadModel || model);
 
-    commit('SET_TEMP', item);
+    commit('SET_TEMP_ITEM', item);
 
     return item;
   };

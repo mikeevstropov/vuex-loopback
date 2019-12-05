@@ -25,7 +25,7 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
 
     const state = createState({
       extension: {
-        temp: data,
+        tempItem: data,
       },
     });
 
@@ -72,7 +72,7 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
 
     const state = createState({
       extension: {
-        temp: data,
+        tempItem: data,
       },
     });
 
@@ -112,7 +112,7 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
 
     const state = createState({
       extension: {
-        temp: data,
+        tempItem: data,
       },
     });
 
@@ -133,6 +133,6 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
 
     // Reset temp item.
 
-    expect(commit.mock.calls[0][0]).toBe('RESET_TEMP');
+    expect(commit.mock.calls[0][0]).toBe('RESET_TEMP_ITEM');
   });
 });

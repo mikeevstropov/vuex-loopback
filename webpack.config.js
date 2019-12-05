@@ -4,6 +4,7 @@ module.exports = {
   output: {
     library: 'vuexLoopback',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   module: {
     rules: [

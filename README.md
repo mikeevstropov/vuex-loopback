@@ -51,4 +51,8 @@ new Vuex.Store({
 
 ### Todo
 
-[ ] Documentation
+* [x] State factory.
+* [x] Mutations factory.
+* [x] Actions factory.
+* [x] Getters factory.
+* [ ] Documentation.

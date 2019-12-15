@@ -17,7 +17,7 @@ import axios from 'axios';
 import createModule from 'vuex-loopback';
 
 // Create axios instance.
-const instance = axios.create({
+const client = axios.create({
   baseURL: 'https://some-domain.com/api/',
 });
 
@@ -45,9 +45,9 @@ new Vuex.Store({
       namespaced: true,
       // Create module.
       ...createModule({
-        client: instance,
-        model: categoryModel,
-        collection: categoryName,
+        client: client,
+        model: articleModel,
+        collection: articleName,
         state: {
           // Extend default state.
           include: articleInclude,

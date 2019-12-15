@@ -33,7 +33,7 @@ const articleModel = {
 };
 
 // Define collection include.
-const articleRelations = [
+const articleInclude = [
   'category',
 ];
 
@@ -50,7 +50,7 @@ new Vuex.Store({
         collection: categoryName,
         state: {
           // Extend default state.
-          include: articleRelations,
+          include: articleInclude,
         },
       }),
     },

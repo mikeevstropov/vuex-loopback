@@ -32,7 +32,8 @@ const articleModel = {
   categoryId: '',
 };
 
-// Define collection include.
+// Define collection include to
+// resolve relations automatically.
 const articleInclude = [
   'category',
 ];
@@ -40,7 +41,7 @@ const articleInclude = [
 new Vuex.Store({
   modules: {
     // Define module name.
-    categories: {
+    articles: {
       // Will it be namespaced?
       namespaced: true,
       // Create module.

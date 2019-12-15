@@ -1,4 +1,4 @@
-#### Vuex module factory for Loopback 3
+### Vuex module factory for Loopback 3
 ___
 
 ### Install
@@ -65,4 +65,4 @@ new Vuex.Store({
 * [x] Mutations factory.
 * [x] Actions factory.
 * [x] Getters factory.
-* [ ] Documentation.
+* [ ] Usage documentation.

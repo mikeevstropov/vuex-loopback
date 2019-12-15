@@ -1,7 +1,7 @@
 #### Vuex module factory for Loopback 3
 ___
 
-#### Install
+### Install
 ```
 yarn add axios vuex-loopback
 ```
@@ -10,7 +10,7 @@ or
 npm install axios vuex-loopback
 ```
 
-#### Create vuex module
+### Create vuex module
 ```javascript
 // Import axios and factory method.
 import axios from 'axios';

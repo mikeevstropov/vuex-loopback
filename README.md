@@ -22,14 +22,20 @@ const instance = axios.create({
 });
 
 // Define collection name (as in loopback).
-const categoryName = 'Categories';
+const articleName = 'Articles';
 
 // Define collection model.
-const categoryModel = {
+const articleModel = {
   id: '',
   name: '',
-  description: '',
+  body: '',
+  categoryId: '',
 };
+
+// Define collection include.
+const articleRelations = [
+  'category',
+];
 
 new Vuex.Store({
   modules: {
@@ -42,6 +48,10 @@ new Vuex.Store({
         client: instance,
         model: categoryModel,
         collection: categoryName,
+        state: {
+          // Extend default state.
+          include: articleRelations,
+        },
       }),
     },
     // ...

@@ -63,13 +63,3 @@ export function searchStateToFilter(state, filter) {
     ...condition,
   ];
 }
-
-export function snakeToCamel(string) {
-
-  return string.replace(
-    /([-_][a-z])/g,
-    (group) => group.toUpperCase()
-      .replace('-', '')
-      .replace('_', ''),
-  );
-}

@@ -1,49 +1,50 @@
+import _ from 'lodash';
 import {createState} from '../../src/state';
-import {snakeToCamel} from '../../src/utils';
 import {createMutations} from '../../src/mutations';
 
 describe('Mutations checking.', () => {
+
+  const getDirtyState = () => ({
+    item: {field: 'value'},
+    tempItem: {a: 'b'},
+    items: [1, 2, 3],
+    skip: 10,
+    limit: 40,
+    total: 80,
+    orderBy: 'field',
+    orderDesc: true,
+    searchBy: [3, 2, 1],
+    searchQuery: 'query',
+    where: {c: 'd'},
+    loading: true,
+    include: ['123'],
+    fields: ['abc'],
+  });
 
   test('Can set and reset single value.', () => {
 
     const state = createState();
     const initial = createState();
+    const dirty = getDirtyState();
 
     const mutations = createMutations({
       initialState: initial,
     });
 
-    const values = {
-      'ITEM': {field: 'value'},
-      'TEMP_ITEM': {a: 'b'},
-      'ITEMS': [1, 2, 3],
-      'SKIP': 10,
-      'LIMIT': 40,
-      'TOTAL': 80,
-      'ORDER_BY': 'field',
-      'ORDER_DESC': true,
-      'SEARCH_BY': [3, 2, 1],
-      'SEARCH_QUERY': 'query',
-      'WHERE': {c: 'd'},
-      'LOADING': true,
-      'INCLUDE': ['123'],
-      'FIELDS': ['abc'],
-    };
+    Object.keys(dirty).forEach(field => {
 
-    Object.keys(values).forEach(key => {
-
+      const key = _.snakeCase(field).toUpperCase();
       const set = `SET_${key}`;
       const reset = `RESET_${key}`;
-      const field = snakeToCamel(key.toLowerCase());
 
-      mutations[set](state, values[key]);
+      mutations[set](state, dirty[field]);
 
-      expect(state[field]).toEqual(values[key]);
+      expect(state[field]).toEqual(dirty[field]);
       expect(state[field]).not.toEqual(initial[field]);
 
       mutations[reset](state);
 
-      expect(state[field]).not.toEqual(values[key]);
+      expect(state[field]).not.toEqual(dirty[field]);
       expect(state[field]).toEqual(initial[field]);
     });
   });
@@ -52,46 +53,28 @@ describe('Mutations checking.', () => {
 
     const state = createState();
     const initial = createState();
+    const dirty = getDirtyState();
 
     const mutations = createMutations({
       initialState: initial,
     });
 
-    const values = {
-      'ITEM': {field: 'value'},
-      'TEMP_ITEM': {a: 'b'},
-      'ITEMS': [1, 2, 3],
-      'SKIP': 10,
-      'LIMIT': 40,
-      'TOTAL': 80,
-      'ORDER_BY': 'field',
-      'ORDER_DESC': true,
-      'SEARCH_BY': [3, 2, 1],
-      'SEARCH_QUERY': 'query',
-      'WHERE': {c: 'd'},
-      'LOADING': true,
-      'INCLUDE': ['123'],
-      'FIELDS': ['abc'],
-    };
+    Object.keys(dirty).forEach(field => {
 
-    Object.keys(values).forEach(key => {
-
+      const key = _.snakeCase(field).toUpperCase();
       const set = `SET_${key}`;
-      const field = snakeToCamel(key.toLowerCase());
 
-      mutations[set](state, values[key]);
+      mutations[set](state, dirty[field]);
 
-      expect(state[field]).toEqual(values[key]);
+      expect(state[field]).toEqual(dirty[field]);
       expect(state[field]).not.toEqual(initial[field]);
     });
 
     mutations['RESET'](state);
 
-    Object.keys(values).forEach(key => {
+    Object.keys(dirty).forEach(field => {
 
-      const field = snakeToCamel(key.toLowerCase());
-
-      expect(state[field]).not.toEqual(values[key]);
+      expect(state[field]).not.toEqual(dirty[field]);
       expect(state[field]).toEqual(initial[field]);
     });
   });

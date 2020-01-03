@@ -9,6 +9,10 @@ export function createMutations({
 
   initialState = _.cloneDeep(initialState);
 
+  // Initial state getter.
+
+  const getInitialState = () => _.cloneDeep(initialState);
+
   // Create extension.
 
   extension = typeof extension === 'function'
@@ -23,6 +27,16 @@ export function createMutations({
 
   return {
 
+    // Reset.
+
+    RESET(state) {
+
+      Object.assign(
+        state,
+        getInitialState(),
+      );
+    },
+
     // Single.
 
     SET_ITEM(state, value) {
@@ -31,7 +45,7 @@ export function createMutations({
     },
     RESET_ITEM(state) {
 
-      state.item = initialState.item;
+      state.item = getInitialState().item;
     },
     SET_TEMP_ITEM(state, value) {
 
@@ -39,7 +53,7 @@ export function createMutations({
     },
     RESET_TEMP_ITEM(state) {
 
-      state.tempItem = initialState.tempItem;
+      state.tempItem = getInitialState().tempItem;
     },
 
     // List.
@@ -50,7 +64,7 @@ export function createMutations({
     },
     RESET_ITEMS(state) {
 
-      state.items = initialState.items;
+      state.items = getInitialState().items;
     },
     SET_SKIP(state, value) {
 
@@ -58,7 +72,7 @@ export function createMutations({
     },
     RESET_SKIP(state) {
 
-      state.skip = initialState.skip;
+      state.skip = getInitialState().skip;
     },
     SET_LIMIT(state, value) {
 
@@ -66,7 +80,7 @@ export function createMutations({
     },
     RESET_LIMIT(state) {
 
-      state.limit = initialState.limit;
+      state.limit = getInitialState().limit;
     },
     SET_TOTAL(state, value) {
 
@@ -74,7 +88,7 @@ export function createMutations({
     },
     RESET_TOTAL(state) {
 
-      state.total = initialState.total;
+      state.total = getInitialState().total;
     },
     SET_ORDER_BY(state, value) {
 
@@ -82,7 +96,7 @@ export function createMutations({
     },
     RESET_ORDER_BY(state) {
 
-      state.orderBy = initialState.orderBy;
+      state.orderBy = getInitialState().orderBy;
     },
     SET_ORDER_DESC(state, value) {
 
@@ -90,7 +104,7 @@ export function createMutations({
     },
     RESET_ORDER_DESC(state) {
 
-      state.orderDesc = initialState.orderDesc;
+      state.orderDesc = getInitialState().orderDesc;
     },
     SET_SEARCH_BY(state, value) {
 
@@ -98,7 +112,7 @@ export function createMutations({
     },
     RESET_SEARCH_BY(state) {
 
-      state.searchBy = initialState.searchBy;
+      state.searchBy = getInitialState().searchBy;
     },
     SET_SEARCH_QUERY(state, value) {
 
@@ -106,7 +120,7 @@ export function createMutations({
     },
     RESET_SEARCH_QUERY(state) {
 
-      state.searchQuery = initialState.searchQuery;
+      state.searchQuery = getInitialState().searchQuery;
     },
     SET_WHERE(state, value) {
 
@@ -114,7 +128,7 @@ export function createMutations({
     },
     RESET_WHERE(state) {
 
-      state.where = initialState.where;
+      state.where = getInitialState().where;
     },
 
     // Common.
@@ -125,7 +139,7 @@ export function createMutations({
     },
     RESET_LOADING(state) {
 
-      state.loading = initialState.loading;
+      state.loading = getInitialState().loading;
     },
     SET_INCLUDE(state, value) {
 
@@ -133,7 +147,7 @@ export function createMutations({
     },
     RESET_INCLUDE(state) {
 
-      state.include = initialState.include;
+      state.include = getInitialState().include;
     },
     SET_FIELDS(state, value) {
 
@@ -141,7 +155,7 @@ export function createMutations({
     },
     RESET_FIELDS(state) {
 
-      state.fields = initialState.fields;
+      state.fields = getInitialState().fields;
     },
 
     // Sync.
@@ -184,26 +198,20 @@ export function createMutations({
       if (
         state.item &&
         state.item.id === id
-      ) state.item = initialState.item;
+      ) state.item = getInitialState().item;
 
       // Remove temp item.
 
       if (
         state.tempItem &&
         state.tempItem.id === id
-      ) state.tempItem = initialState.tempItem;
+      ) state.tempItem = getInitialState().tempItem;
 
       // Remove from items.
 
-      const index = _.findIndex(
-        state.items,
-        {id},
+      state.items = state.items.filter(
+        value => value.id !== id,
       );
-
-      if (index > -1)
-        state.items.splice(
-          index, 1,
-        );
     },
 
     // Extension.

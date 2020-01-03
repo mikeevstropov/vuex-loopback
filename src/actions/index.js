@@ -1,4 +1,3 @@
-import resetAction from './reset';
 import fetchPageAction from './fetch-page';
 import patchItemAction from './patch-item';
 import fetchItemAction from './fetch-item';
@@ -61,7 +60,6 @@ export function createActions({
   // Return actions.
 
   return {
-    RESET: resetAction(options),
     FETCH_ITEM: fetchItemAction(options),
     FETCH_ITEMS: fetchItemsAction(options),
     CREATE_ITEM: createItemAction(options),

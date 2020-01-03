@@ -4,7 +4,7 @@ import {createMutations} from '../../src/mutations';
 
 describe('Mutations checking.', () => {
 
-  test('Can set and reset value.', () => {
+  test('Can set and reset single value.', () => {
 
     const state = createState();
     const initial = createState();
@@ -42,6 +42,54 @@ describe('Mutations checking.', () => {
       expect(state[field]).not.toEqual(initial[field]);
 
       mutations[reset](state);
+
+      expect(state[field]).not.toEqual(values[key]);
+      expect(state[field]).toEqual(initial[field]);
+    });
+  });
+
+  test('Can set single and reset all values.', () => {
+
+    const state = createState();
+    const initial = createState();
+
+    const mutations = createMutations({
+      initialState: initial,
+    });
+
+    const values = {
+      'ITEM': {field: 'value'},
+      'TEMP_ITEM': {a: 'b'},
+      'ITEMS': [1, 2, 3],
+      'SKIP': 10,
+      'LIMIT': 40,
+      'TOTAL': 80,
+      'ORDER_BY': 'field',
+      'ORDER_DESC': true,
+      'SEARCH_BY': [3, 2, 1],
+      'SEARCH_QUERY': 'query',
+      'WHERE': {c: 'd'},
+      'LOADING': true,
+      'INCLUDE': ['123'],
+      'FIELDS': ['abc'],
+    };
+
+    Object.keys(values).forEach(key => {
+
+      const set = `SET_${key}`;
+      const field = snakeToCamel(key.toLowerCase());
+
+      mutations[set](state, values[key]);
+
+      expect(state[field]).toEqual(values[key]);
+      expect(state[field]).not.toEqual(initial[field]);
+    });
+
+    mutations['RESET'](state);
+
+    Object.keys(values).forEach(key => {
+
+      const field = snakeToCamel(key.toLowerCase());
 
       expect(state[field]).not.toEqual(values[key]);
       expect(state[field]).toEqual(initial[field]);

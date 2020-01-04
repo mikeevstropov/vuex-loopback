@@ -369,6 +369,35 @@ describe('Checking action FETCH_ITEMS.', () => {
     expect(customers.length > 1).toBeTrue();
   });
 
+  test('Can dispatch with "append".', async () => {
+
+    const action = fetchItemsAction({
+      client: api,
+      collection: 'Customers',
+      onError: () => {},
+      onSuccess: () => {},
+    });
+
+    const existed = 'item';
+    const commit = jest.fn(() => {});
+
+    const state = createState({
+      extension: {
+        items: [existed],
+      },
+    });
+
+    const customers = await action(
+      {commit, state},
+      {append: true},
+    );
+
+    // Customer has the existed item.
+
+    expect(customers.length > 1).toBeTrue();
+    expect(customers[0]).toBe(existed);
+  });
+
   test('Can call "onSuccess" callback.', async () => {
 
     const onError = jest.fn(() => {});

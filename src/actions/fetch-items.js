@@ -18,7 +18,7 @@ export default function ({
    */
   return async function (
     {state, commit},
-    {filter = {}, noGlobals = false} = {},
+    {filter = {}, noGlobals = false, append = false} = {},
   ) {
 
     commit('SET_LOADING', true);
@@ -66,7 +66,10 @@ export default function ({
 
     if (itemsResponse && countResponse) {
 
-      const itemsData = itemsResponse.data;
+      const itemsData = append
+        ? state.items.concat(itemsResponse.data)
+        : itemsResponse.data;
+
       const countData = countResponse.data.count;
 
       commit('SET_ITEMS', itemsData);

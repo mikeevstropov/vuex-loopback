@@ -1,3 +1,4 @@
+import fetchMoreAction from './fetch-more';
 import fetchPageAction from './fetch-page';
 import patchItemAction from './patch-item';
 import fetchItemAction from './fetch-item';
@@ -69,6 +70,7 @@ export function createActions({
     PUT_TEMP_ITEM: putTempItemAction(options),
     SEARCH_ITEMS: searchItemsAction(options),
     FETCH_PAGE: fetchPageAction(options),
+    FETCH_MORE: fetchMoreAction(options),
 
     // Extension.
 

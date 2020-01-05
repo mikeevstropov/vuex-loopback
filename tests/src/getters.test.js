@@ -28,6 +28,27 @@ describe('Getters checking.', () => {
     expect(value).toBe(10);
   });
 
+  test('Can get "hasMore".', () => {
+
+    const getters = createGetters();
+
+    const positive = getters.hasMore({
+      skip: 10,
+      limit: 10,
+      total: 100,
+    });
+
+    expect(positive).toBeTrue();
+
+    const negative = getters.hasMore({
+      skip: 90,
+      limit: 10,
+      total: 100,
+    });
+
+    expect(negative).toBeFalse();
+  });
+
   test('Can be extended.', () => {
 
     const field = 'my-field';

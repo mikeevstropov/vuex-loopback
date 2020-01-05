@@ -14,6 +14,10 @@ export function createGetters({
 
       return Math.ceil(state.total / state.limit);
     },
+    hasMore(state) {
+
+      return state.total > state.skip + state.limit;
+    },
 
     // Extension.
 

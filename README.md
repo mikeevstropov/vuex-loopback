@@ -95,60 +95,60 @@ So now the Vuex Module `articles` has:
 ### Actions:
 
 - FETCH_ITEM (`{id, filter = {}, noTempItem = false}`)  
-action may affect:
+affect:
   - `loading`
   - `item`
   - `tempItem`
 
 - FETCH_ITEMS (`{filter = {}, noGlobals = false, append = false}`)  
-action may affect:
+affect:
   - `loading`
   - `items`
   - `total`
 
 - CREATE_ITEM (`{data, filter = {}}`)  
-action may affect:
+affect:
   - `loading`
   - `items`
 
 - PATCH_ITEM (`{id, data, filter = {}}`)  
-action may affect:
+affect:
   - `loading`
   - `item`
   - `items`
 
 - REMOVE_ITEM (`id`)  
-action may affect:
+affect:
   - `loading`
   - `item`
   - `items`
 
 - CREATE_TEMP_ITEM (`{model}`)  
-action may affect:
+affect:
   - `tempItem`
 
 - PUT_TEMP_ITEM (`{filter = {}, existed = false, reset = false}`)  
-action may affect:
+affect:
   - `loading`
   - `item`
   - `items`
   - `tempItem`
 
 - SEARCH_ITEMS (`{query = '', searchBy = null}`)  
-action may affect:
+affect:
   - `loading`
   - `item`
   - `items`
   - `total`
 
 - FETCH_PAGE (`{page = 1}`)  
-action may affect:
+affect:
   - `loading`
   - `items`
   - `total`
   
 - FETCH_MORE  
-action may affect:
+affect:
   - `loading`
   - `items`
 

@@ -1,7 +1,7 @@
-#### Vuex module factory for Loopback 3
+### Vuex module factory for Loopback 3
 ___
 
-##### 1. Install
+#### 1. Install
 ```
 yarn add axios vuex-loopback
 ```
@@ -10,7 +10,7 @@ or
 npm install axios vuex-loopback
 ```
 
-##### 2. Create vuex module
+#### 2. Create vuex module
 ```javascript
 
 new Vuex.Store({
@@ -35,7 +35,7 @@ new Vuex.Store({
 
 So now the Vuex Module `articles` has:
 
-#### State
+### State
 
 - item - `null`
 - tempItem - `null`
@@ -52,13 +52,13 @@ So now the Vuex Module `articles` has:
 - include - `[]`
 - fields - `[]`
 
-#### Getters
+### Getters
 
 - `page` - Number of current page.
 - `totalPages` - Number of total pages.
 - `hasMore` - Can I load more? (lazy loading)
 
-#### Mutations
+### Mutations
 
 - RESET
 - SET_ITEM (`value`)
@@ -92,7 +92,7 @@ So now the Vuex Module `articles` has:
 - UPDATE_ITEM (`item`)
 - REMOVE_ITEM (`id`)
 
-#### Actions:
+### Actions:
 
 - FETCH_ITEM (`{id, filter = {}, noTempItem = false}`)  
 action may affect:

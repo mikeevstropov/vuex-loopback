@@ -1,22 +1,40 @@
 ### Vuex module factory for Loopback 3
 ___
 
-#### 1. Install
+#### 1. Install `axios` and `vuex-loopback`
 ```
-yarn add vuex-loopback
+yarn add axios vuex-loopback
 ```
 or
 ```
-npm install vuex-loopback
+npm install axios vuex-loopback
 ```
 
-#### 2. Import module factory
+#### 2. Import `axios` and module factory
 
 ```javascript
+import axios from 'axios';
 import {createModule} from 'vuex-loopback';
 ```
 
-#### 3. Create Vuex module
+#### 3. Create `axios` instance with `baseURL` option
+
+```javascript
+const client = axios.create({
+  baseURL: 'https://my-domain.com/api/',
+});
+```
+
+#### 4. Define collection model with default fields
+
+```javascript
+const model = {
+  id: '',
+  name: '',
+}
+```
+
+#### 5. Create Vuex module
 ```javascript
 
 new Vuex.Store({
@@ -25,13 +43,13 @@ new Vuex.Store({
     articles: {
       namespaced: true,
       ...createModule({
-        client: axios,             // (required) Axios instance.
-        model: {id: '', name: ''}, // (required) Collection model.
-        collection: 'Articles',    // (required) Collection name.
-        state: {},                 // Extend default state.
-        getters: {},               // Extend default getters.
-        actions: {},               // Extend default actions.
-        mutations: {},             // Extend default mutations.
+        client,                 // (required) Axios instance.
+        model,                  // (required) Collection model.
+        collection: 'Articles', // (required) Collection name.
+        state: {},              // Extend default state.
+        getters: {},            // Extend default getters.
+        actions: {},            // Extend default actions.
+        mutations: {},          // Extend default mutations.
       }),
     },
     // ...

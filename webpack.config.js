@@ -1,3 +1,4 @@
+const path = require('path');
 
 module.exports = {
   mode: 'production',
@@ -5,6 +6,12 @@ module.exports = {
     library: 'vuexLoopback',
     libraryTarget: 'umd',
     globalObject: 'this',
+  },
+  resolve: {
+    alias: {
+      '@src': path.resolve(__dirname, 'src'),
+      '@tests': path.resolve(__dirname, 'tests'),
+    },
   },
   module: {
     rules: [

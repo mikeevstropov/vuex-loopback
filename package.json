@@ -1,7 +1,7 @@
 {
   "name": "vuex-loopback",
   "version": "1.2.0",
-  "description": "Vuex module factory for Loopback 3",
+  "description": "Vuex module factory for Loopback",
   "main": "dist/main.js",
   "repository": "git@github.com:mikeevstropov/vuex-loopback.git",
   "author": {

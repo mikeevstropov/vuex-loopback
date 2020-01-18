@@ -3,14 +3,20 @@ ___
 
 #### 1. Install
 ```
-yarn add axios vuex-loopback
+yarn add vuex-loopback
 ```
 or
 ```
-npm install axios vuex-loopback
+npm install vuex-loopback
 ```
 
-#### 2. Create vuex module
+#### 2. Import module factory
+
+```javascript
+import {createModule} from 'vuex-loopback';
+```
+
+#### 3. Create Vuex module
 ```javascript
 
 new Vuex.Store({

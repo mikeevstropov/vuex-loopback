@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import {ApiError} from '@src/errors/api-error';
 import {orderFromState, searchStateToFilter} from '@src/utils';
 
@@ -23,7 +23,7 @@ export function fetchItems({
 
     commit('SET_LOADING', true);
 
-    let mergedFilter = _.cloneDeep(filter);
+    let mergedFilter = cloneDeep(filter);
 
     if (!noGlobals) {
 

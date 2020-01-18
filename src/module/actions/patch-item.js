@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import {ApiError} from '@src/errors/api-error';
 
 export function patchItem({
@@ -22,7 +22,7 @@ export function patchItem({
 
     commit('SET_LOADING', true);
 
-    const part = _.cloneDeep(data);
+    const part = cloneDeep(data);
     delete part.id;
 
     const query = JSON.stringify({

@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
+import findIndex from 'lodash/findIndex';
 
 export function createMutations({
   initialState,
@@ -7,11 +8,11 @@ export function createMutations({
 
   // Clone initial state.
 
-  initialState = _.cloneDeep(initialState);
+  initialState = cloneDeep(initialState);
 
   // Initial state getter.
 
-  const getInitialState = () => _.cloneDeep(initialState);
+  const getInitialState = () => cloneDeep(initialState);
 
   // Create extension.
 
@@ -155,18 +156,18 @@ export function createMutations({
       if (
         state.item &&
         state.item.id === item.id
-      ) state.item = _.cloneDeep(item);
+      ) state.item = cloneDeep(item);
 
       // Update temp item.
 
       if (
         state.tempItem &&
         state.tempItem.id === item.id
-      ) state.tempItem = _.cloneDeep(item);
+      ) state.tempItem = cloneDeep(item);
 
       // Update items.
 
-      const index = _.findIndex(
+      const index = findIndex(
         state.items,
         {id: item.id},
       );

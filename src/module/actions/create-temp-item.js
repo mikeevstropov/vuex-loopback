@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 export function createTempItem({model}) {
 
@@ -12,7 +12,7 @@ export function createTempItem({model}) {
   return function ({commit}, payload = {}) {
 
     const payloadModel = payload && payload.model;
-    const item = _.cloneDeep(payloadModel || model);
+    const item = cloneDeep(payloadModel || model);
 
     commit('SET_TEMP_ITEM', item);
 

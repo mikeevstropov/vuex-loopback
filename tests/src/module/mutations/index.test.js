@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import snakeCase from 'lodash/snakeCase';
 import {createState} from '@src/module/state';
 import {createMutations} from '@src/module/mutations';
 
@@ -33,7 +33,7 @@ describe('Mutations checking.', () => {
 
     Object.keys(dirty).forEach(field => {
 
-      const key = _.snakeCase(field).toUpperCase();
+      const key = snakeCase(field).toUpperCase();
       const set = `SET_${key}`;
       const reset = `RESET_${key}`;
 
@@ -61,7 +61,7 @@ describe('Mutations checking.', () => {
 
     Object.keys(dirty).forEach(field => {
 
-      const key = _.snakeCase(field).toUpperCase();
+      const key = snakeCase(field).toUpperCase();
       const set = `SET_${key}`;
 
       mutations[set](state, dirty[field]);

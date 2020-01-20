@@ -1,4 +1,4 @@
-### Vuex module factory for Loopback 3
+### Vuex module factory for Loopback
 ___
 
 #### 1. Install `axios` and `vuex-loopback`

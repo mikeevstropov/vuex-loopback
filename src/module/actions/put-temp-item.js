@@ -26,8 +26,9 @@ export function putTempItem() {
       filter: filter,
     });
 
-    if (reset)
-      commit('RESET_TEMP_ITEM');
+    reset
+      ? commit('RESET_TEMP_ITEM')
+      : commit('SET_TEMP_ITEM', item);
 
     return item;
   };

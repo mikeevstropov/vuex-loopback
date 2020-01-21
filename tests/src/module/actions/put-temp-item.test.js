@@ -36,7 +36,7 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
 
     // Number of commits and dispatches.
 
-    expect(commit.mock.calls.length).toBe(0);
+    expect(commit.mock.calls.length).toBe(1);
     expect(dispatch.mock.calls.length).toBe(1);
 
     // Create item.
@@ -44,13 +44,14 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
     expect(dispatch.mock.calls[0][0]).toBe('CREATE_ITEM');
     expect(dispatch.mock.calls[0][1].data).toBe(data);
 
-    // Payload has filter.
+    // Set temp item.
 
-    expect(payload.filter.include).toBe('accounts');
+    expect(commit.mock.calls[0][0]).toBe('SET_TEMP_ITEM');
 
-    // Payload has data.
+    // Payload has data and filter.
 
     expect(payload.data).toBe(data);
+    expect(payload.filter.include).toBe('accounts');
   });
 
   test('Can dispatch with "existed".', async () => {
@@ -68,7 +69,7 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
     };
 
     const commit = jest.fn(() => {});
-    const dispatch = jest.fn(() => {});
+    const dispatch = jest.fn((action, payload) => payload);
 
     const state = createState({
       extension: {
@@ -76,21 +77,30 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
       },
     });
 
-    await action(
+    const payload = await action(
       {state, commit, dispatch},
       {existed: true},
     );
 
     // Number of commits and dispatches.
 
-    expect(commit.mock.calls.length).toBe(0);
+    expect(commit.mock.calls.length).toBe(1);
     expect(dispatch.mock.calls.length).toBe(1);
 
-    // Create item.
+    // Patch item.
 
     expect(dispatch.mock.calls[0][0]).toBe('PATCH_ITEM');
     expect(dispatch.mock.calls[0][1].id).toBe(data.id);
     expect(dispatch.mock.calls[0][1].data).toBe(data);
+
+    // Set temp item.
+
+    expect(commit.mock.calls[0][0]).toBe('SET_TEMP_ITEM');
+
+    // Payload has id and data.
+
+    expect(payload.id).toBe(data.id);
+    expect(payload.data).toBe(data);
   });
 
   test('Can dispatch with "reset".', async () => {

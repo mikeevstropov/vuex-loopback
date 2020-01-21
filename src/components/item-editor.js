@@ -60,7 +60,7 @@ export default {
         this.item.id,
       );
 
-      this.$emit('removed', this.item);
+      this.$emit('removed');
     },
   },
   render(createElement) {

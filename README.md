@@ -60,12 +60,14 @@ new Vuex.Store({
 ```
 
 ## Load items
-Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
+Built-in component `ItemsLoader` will help you to load collection items right in Vue template.
 
 ##### Props
 
 - `module: string` - Name of Vuex module.
 - `noAutoload: boolean` - Do not autoload items after mount.
+
+A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
 
 ##### Scope properties
 
@@ -131,11 +133,13 @@ export default {
 ```
 
 ## Manage an item
-You are able to create, update or remove collection item by built-in component `ItemEditor`. Same as above `ItemEditor` has a scope of default slot which provides specific methods and properties.
+You are able to create, update or remove collection item by built-in component `ItemEditor`.
 
 ##### Props
 
 - `module: string` - Name of Vuex module.
+
+Same as above `ItemEditor` has a scope of default slot which provides specific methods and properties.
 
 ##### Scope properties
 

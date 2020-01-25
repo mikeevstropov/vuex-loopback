@@ -139,14 +139,14 @@ You are able to create, update or remove collection item by built-in component `
 
 ##### Scope properties
 
-- `item: object` - Selected item by method `edit`.
-- `loading: boolean` - Loading state of `save` and `remove` methods.
+- `item: object` - Selected item.
+- `loading: boolean` - Loading state.
 
 ##### Scope methods
 
-- `edit(item: object)` - To select an item or create a new temp item if no argument specified.
-- `set(item: object)` - To update selected item.
-- `save()` - To commit changes applied by method `set`.
+- `edit(item: object)` - To select or create item if no argument specified.
+- `set(item: object)` - To update selected or created item temporary.
+- `save()` - To commit temporary changes applied by `set` method.
 - `remove()` - To remove selected item from collection.
 
 \* *All properties and methods are accessible by reference of a component (`ref` attribute).*

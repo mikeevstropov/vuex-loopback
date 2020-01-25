@@ -41,12 +41,12 @@ export default {
       if (!this.item)
         return;
 
-      const item = await this.$store.dispatch(
+      await this.$store.dispatch(
         `${this.module}/PUT_TEMP_ITEM`,
         {existed: this.item.id},
       );
 
-      this.$emit('saved', item);
+      this.$emit('saved', this.item);
     },
     async remove() {
 

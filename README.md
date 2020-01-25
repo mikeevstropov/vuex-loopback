@@ -1,7 +1,9 @@
 ### Vuex module factory for Loopback
 ___
 
-#### 1. Install `axios` and `vuex-loopback`
+### Installing
+
+##### 1. Install `axios` and `vuex-loopback`.
 ```
 yarn add axios vuex-loopback
 ```
@@ -10,14 +12,14 @@ or
 npm install axios vuex-loopback
 ```
 
-#### 2. Import `axios` and module factory
+##### 2. Import `axios` and module factory.
 
 ```javascript
 import axios from 'axios';
 import {createModule} from 'vuex-loopback';
 ```
 
-#### 3. Create `axios` instance with `baseURL` option
+##### 3. Create `axios` instance with `baseURL` option.
 
 ```javascript
 const client = axios.create({
@@ -25,7 +27,9 @@ const client = axios.create({
 });
 ```
 
-#### 4. Define collection model with default fields
+### Create Vuex module
+
+##### 1. Define collection model with default fields.
 
 ```javascript
 const model = {
@@ -34,7 +38,7 @@ const model = {
 }
 ```
 
-#### 5. Create Vuex module
+##### 2. Use module factory to create Vuex module.
 ```javascript
 
 new Vuex.Store({
@@ -45,7 +49,7 @@ new Vuex.Store({
       ...createModule({
         client,                 // (required) Axios instance.
         model,                  // (required) Collection model.
-        collection: 'Articles', // (required) Collection name.
+        collection: 'Articles', // (required) Plural collection name.
         state: {},              // Extend default state.
         getters: {},            // Extend default getters.
         actions: {},            // Extend default actions.
@@ -57,9 +61,154 @@ new Vuex.Store({
 });
 ```
 
-So now the Vuex Module `articles` has:
+### Load items by `ItemsLoader`
 
-### State
+##### 1. Import from `vuex-loopback`.
+```javascript
+import {ItemsLoader} from 'vuex-loopback';
+```
+
+##### 2. Define local component.
+```javascript
+export default {
+  // ...
+  components: {
+    ItemsLoader,
+  },
+  // ...
+}
+```
+
+##### 3. Use it to load collection items.
+```html
+<!-- Loader -->
+<items-loader
+  module="articles">
+
+  <template
+    slot-scope="loader">
+    
+    <!-- Item -->
+    <div
+      :key="item.id"
+      v-for="item in loader.items">
+      {{ item.name }}
+    </div>
+    
+    <!-- More Button -->
+    <button
+      v-if="loader.hasMore"
+      @click="loader.loadMore">
+      More
+    </button>
+    
+  </template>
+  
+</items-loader>
+```
+
+### Create, edit or remove an item by `ItemEditor`
+
+##### 1. Import from `vuex-loopback`.
+```javascript
+import {ItemEditor} from 'vuex-loopback'; // new line
+import {ItemsLoader} from 'vuex-loopback';
+```
+
+##### 2. Define local component.
+```javascript
+export default {
+  // ...
+  components: {
+    ItemEditor, // new line
+    ItemsLoader,
+  },
+  // ...
+}
+```
+
+##### 3. Use it to manage collection item.
+```html
+<!-- Loader -->
+<items-loader
+  module="articles">
+
+  <template
+    slot-scope="loader">
+    
+    <!-- Item -->
+    <div
+      :key="item.id"
+      v-for="item in loader.items">
+      {{ item.name }}
+      
+      <!-- Edit Button -->
+      <button
+        @click="() => $refs.editor.show(item)">
+        Edit
+      </button>
+      
+    </div>
+    
+    <!-- More Button -->
+    <button
+      v-if="loader.hasMore"
+      @click="loader.loadMore">
+      More
+    </button>
+    
+    <!-- Create Button -->
+    <button
+      @click="() => $refs.editor.show()">
+      Create
+    </button>
+    
+  </template>
+  
+</items-loader>
+
+<!-- Editor -->
+<item-editor
+  ref="editor"
+  module="articles">
+  
+  <template
+    slot-scope="editor">
+
+    <form
+      @submit.prevent="editor.save">
+      
+      <!-- Name Field -->
+      <input
+        :value="editor.item.name"
+        @input="editor.set({...editor.item, name: $event})"/>
+
+      <!-- Save Button -->
+      <button
+        type="submit">
+        Save
+      </button>
+
+      <!-- Remove Button -->
+      <button
+        v-if="editor.item.id"
+        @click="editor.remove">
+        Remove
+      </button>
+  
+    </form>
+  
+  </template>
+
+</item-editor>
+```
+
+### What's next
+
+Sometimes you may want to use Vuex Module directly.  
+Let's see what it has.
+
+#### State
 
 - item - `null`
 - tempItem - `null`
@@ -76,13 +225,13 @@ So now the Vuex Module `articles` has:
 - include - `[]`
 - fields - `[]`
 
-### Getters
+#### Getters
 
 - `page` - Number of current page.
 - `totalPages` - Number of total pages.
 - `hasMore` - Can I load more? (lazy loading)
 
-### Mutations
+#### Mutations
 
 - RESET
 - SET_ITEM (`value`)
@@ -116,7 +265,7 @@ So now the Vuex Module `articles` has:
 - UPDATE_ITEM (`item`)
 - REMOVE_ITEM (`id`)
 
-### Actions:
+#### Actions:
 
 - FETCH_ITEM (`{id, filter = {}, noTempItem = false}`)  
 affect:

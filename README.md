@@ -4,7 +4,7 @@
 ```
 yarn add axios vuex-loopback
 ```
-or
+or via `npm`
 ```
 npm install axios vuex-loopback
 ```

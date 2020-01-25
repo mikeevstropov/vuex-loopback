@@ -77,6 +77,7 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 - `loadMore()` - To load more items.
 
 *All properties and methods are accessible by reference of a component (`ref` attribute).*
+*Component will load items automatically in `mounted` hook.*
 
 #### Basic example
 

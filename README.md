@@ -58,9 +58,9 @@ new Vuex.Store({
 });
 ```
 
-## Load items by `ItemsLoader`
+## Load items
 
-##### 1. Import from `vuex-loopback`.
+##### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript
 import {ItemsLoader} from 'vuex-loopback';
 ```
@@ -104,9 +104,9 @@ export default {
 </items-loader>
 ```
 
-## Create, edit or remove an item by `ItemEditor`
+## Create, edit or remove an item
 
-##### 1. Import from `vuex-loopback`.
+##### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript
 import {ItemEditor} from 'vuex-loopback'; // new line
 import {ItemsLoader} from 'vuex-loopback';

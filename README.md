@@ -104,7 +104,7 @@ export default {
 </items-loader>
 ```
 
-## Create, edit or remove an item
+## Manage an item
 
 ##### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript
@@ -124,7 +124,46 @@ export default {
 }
 ```
 
-##### 3. Use it to manage collection item.
+##### 3. Use it to create editor form.
+
+```html
+<!-- Editor -->
+<item-editor
+  ref="editor"
+  module="articles">
+  
+  <template
+    slot-scope="editor">
+
+    <form
+      @submit.prevent="editor.save">
+      
+      <!-- Name Field -->
+      <input
+        :value="editor.item.name"
+        @input="editor.set({...editor.item, name: $event})"/>
+
+      <!-- Save Button -->
+      <button
+        type="submit">
+        Save
+      </button>
+
+      <!-- Remove Button -->
+      <button
+        v-if="editor.item.id"
+        @click="editor.remove">
+        Remove
+      </button>
+  
+    </form>
+  
+  </template>
+
+</item-editor>
+```
+
+##### 4. Update items loader template.
 ```html
 <!-- Loader -->
 <items-loader
@@ -163,41 +202,6 @@ export default {
   </template>
   
 </items-loader>
-
-<!-- Editor -->
-<item-editor
-  ref="editor"
-  module="articles">
-  
-  <template
-    slot-scope="editor">
-
-    <form
-      @submit.prevent="editor.save">
-      
-      <!-- Name Field -->
-      <input
-        :value="editor.item.name"
-        @input="editor.set({...editor.item, name: $event})"/>
-
-      <!-- Save Button -->
-      <button
-        type="submit">
-        Save
-      </button>
-
-      <!-- Remove Button -->
-      <button
-        v-if="editor.item.id"
-        @click="editor.remove">
-        Remove
-      </button>
-  
-    </form>
-  
-  </template>
-
-</item-editor>
 ```
 
 ## Advanced usage

@@ -25,6 +25,7 @@ const client = axios.create({
 ```
 
 ## Create Vuex module
+Before use built-in components like `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `articles` for the `Articles` collection.
 
 ##### 1. Define collection model with default fields.
 

@@ -207,7 +207,7 @@ export default {
 
 ## Advanced usage
 
-Sometimes you may want to use Vuex Module directly.  
+You may want to use Vuex Module directly.  
 Let's see what it has.
 
 #### State

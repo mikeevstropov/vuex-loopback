@@ -1,13 +1,10 @@
-### Vuex module factory for Loopback
-___
-
-### Installing
+## Installing
 
 ##### 1. Install `axios` and `vuex-loopback`.
 ```
 yarn add axios vuex-loopback
 ```
-or
+or via `npm`
 ```
 npm install axios vuex-loopback
 ```
@@ -27,7 +24,7 @@ const client = axios.create({
 });
 ```
 
-### Create Vuex module
+## Create Vuex module
 
 ##### 1. Define collection model with default fields.
 
@@ -61,9 +58,9 @@ new Vuex.Store({
 });
 ```
 
-### Load items by `ItemsLoader`
+## Load items
 
-##### 1. Import from `vuex-loopback`.
+##### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript
 import {ItemsLoader} from 'vuex-loopback';
 ```
@@ -86,19 +83,19 @@ export default {
   module="articles">
 
   <template
-    slot-scope="loader">
+    slot-scope="{items, hasMore, loadMore}">
     
     <!-- Item -->
     <div
       :key="item.id"
-      v-for="item in loader.items">
+      v-for="item in items">
       {{ item.name }}
     </div>
     
     <!-- More Button -->
     <button
-      v-if="loader.hasMore"
-      @click="loader.loadMore">
+      v-if="hasMore"
+      @click="loadMore">
       More
     </button>
     
@@ -107,9 +104,10 @@ export default {
 </items-loader>
 ```
 
-### Create, edit or remove an item by `ItemEditor`
+## Manage an item
+You are able to create, update or remove collection item.
 
-##### 1. Import from `vuex-loopback`.
+##### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript
 import {ItemEditor} from 'vuex-loopback'; // new line
 import {ItemsLoader} from 'vuex-loopback';
@@ -127,19 +125,58 @@ export default {
 }
 ```
 
-##### 3. Use it to manage collection item.
+##### 3. Use it to create editor form.
+
+```html
+<!-- Editor -->
+<item-editor
+  ref="editor"
+  module="articles">
+  
+  <template
+    slot-scope="{item, set, save, remove}">
+
+    <form
+      @submit.prevent="save">
+      
+      <!-- Name Field -->
+      <input
+        :value="item.name"
+        @input="set({...item, name: $event})"/>
+
+      <!-- Save Button -->
+      <button
+        type="submit">
+        Save
+      </button>
+
+      <!-- Remove Button -->
+      <button
+        v-if="item.id"
+        @click="remove">
+        Remove
+      </button>
+  
+    </form>
+  
+  </template>
+
+</item-editor>
+```
+
+##### 4. Update items loader template.
 ```html
 <!-- Loader -->
 <items-loader
   module="articles">
 
   <template
-    slot-scope="loader">
+    slot-scope="{items, hasMore, loadMore}">
     
     <!-- Item -->
     <div
       :key="item.id"
-      v-for="item in loader.items">
+      v-for="item in items">
       {{ item.name }}
       
       <!-- Edit Button -->
@@ -152,8 +189,8 @@ export default {
     
     <!-- More Button -->
     <button
-      v-if="loader.hasMore"
-      @click="loader.loadMore">
+      v-if="hasMore"
+      @click="loadMore">
       More
     </button>
     
@@ -166,46 +203,11 @@ export default {
   </template>
   
 </items-loader>
-
-<!-- Editor -->
-<item-editor
-  ref="editor"
-  module="articles">
-  
-  <template
-    slot-scope="editor">
-
-    <form
-      @submit.prevent="editor.save">
-      
-      <!-- Name Field -->
-      <input
-        :value="editor.item.name"
-        @input="editor.set({...editor.item, name: $event})"/>
-
-      <!-- Save Button -->
-      <button
-        type="submit">
-        Save
-      </button>
-
-      <!-- Remove Button -->
-      <button
-        v-if="editor.item.id"
-        @click="editor.remove">
-        Remove
-      </button>
-  
-    </form>
-  
-  </template>
-
-</item-editor>
 ```
 
-### What's next
+## Advanced usage
 
-Sometimes you may want to use Vuex Module directly.  
+You may want to use Vuex Module directly.  
 Let's see what it has.
 
 #### State
@@ -325,7 +327,7 @@ affect:
   - `loading`
   - `items`
 
-### Todo
+## Todo
 
 * [x] State factory.
 * [x] Mutations factory.

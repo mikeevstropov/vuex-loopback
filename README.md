@@ -105,6 +105,7 @@ export default {
 ```
 
 ## Manage an item
+You are able to create, update or remove collection item.
 
 ##### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript

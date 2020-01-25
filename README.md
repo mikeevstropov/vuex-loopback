@@ -3,7 +3,7 @@ ___
 
 ### Installing
 
-##### 1. Install `axios` and `vuex-loopback`.
+1. Install `axios` and `vuex-loopback`.
 ```
 yarn add axios vuex-loopback
 ```
@@ -12,14 +12,14 @@ or
 npm install axios vuex-loopback
 ```
 
-##### 2. Import `axios` and module factory.
+2. Import `axios` and module factory.
 
 ```javascript
 import axios from 'axios';
 import {createModule} from 'vuex-loopback';
 ```
 
-##### 3. Create `axios` instance with `baseURL` option.
+3. Create `axios` instance with `baseURL` option.
 
 ```javascript
 const client = axios.create({
@@ -29,7 +29,7 @@ const client = axios.create({
 
 ### Create Vuex module
 
-##### 1. Define collection model with default fields.
+1. Define collection model with default fields.
 
 ```javascript
 const model = {
@@ -38,7 +38,7 @@ const model = {
 }
 ```
 
-##### 2. Use module factory to create Vuex module.
+2. Use module factory to create Vuex module.
 ```javascript
 
 new Vuex.Store({
@@ -61,14 +61,14 @@ new Vuex.Store({
 });
 ```
 
-### Load items by `ItemsLoader`
+### Load items by `ItemsLoader` component
 
-##### 1. Import from `vuex-loopback`.
+1. Import from `vuex-loopback`.
 ```javascript
 import {ItemsLoader} from 'vuex-loopback';
 ```
 
-##### 2. Define local component.
+2. Define local component.
 ```javascript
 export default {
   // ...
@@ -79,7 +79,7 @@ export default {
 }
 ```
 
-##### 3. Use it to load collection items.
+3. Use it to load collection items.
 ```html
 <!-- Loader -->
 <items-loader
@@ -107,15 +107,15 @@ export default {
 </items-loader>
 ```
 
-### Create, edit or remove an item by `ItemEditor`
+### Create, edit or remove an item by `ItemEditor` component
 
-##### 1. Import from `vuex-loopback`.
+1. Import from `vuex-loopback`.
 ```javascript
 import {ItemEditor} from 'vuex-loopback'; // new line
 import {ItemsLoader} from 'vuex-loopback';
 ```
 
-##### 2. Define local component.
+2. Define local component.
 ```javascript
 export default {
   // ...
@@ -127,7 +127,7 @@ export default {
 }
 ```
 
-##### 3. Use it to manage collection item.
+3. Use it to manage collection item.
 ```html
 <!-- Loader -->
 <items-loader

@@ -209,7 +209,7 @@ export default {
 
 ## Advanced usage
 
-You may want to use Vuex Module directly.  
+You may want to use Vuex module directly.  
 Let's see what it has.
 
 #### State

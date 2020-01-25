@@ -25,7 +25,7 @@ const client = axios.create({
 ```
 
 ## Create Vuex module
-Before use built-in components like `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `articles` for the `Articles` collection.
+Before use built-in components `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `articles` for the `Articles` collection.
 
 ##### 1. Define collection model with default fields.
 
@@ -76,7 +76,7 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 - `loadPage(page: number)` - To load specific page.
 - `loadMore()` - To load more items.
 
-*All properties and methods are accessible by component directly.*
+*All properties and methods are accessible by reference of a component (`ref` attribute).*
 
 #### Basic example
 
@@ -139,7 +139,7 @@ You are able to create, update or remove collection item by built-in component `
 - `save()` - To commit changes applied by method `set`.
 - `remove()` - To remove selected item from collection.
 
-*All properties and methods are accessible by component directly.*
+*All properties and methods are accessible by reference of a component (`ref` attribute).*
 
 #### Basic example
 

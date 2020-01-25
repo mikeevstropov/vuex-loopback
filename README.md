@@ -60,7 +60,7 @@ new Vuex.Store({
 ```
 
 ## Load items
-Built-in component `ItemsLoader` will help you to load collection items right in Vue template. Scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
+Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
 
 ##### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript

@@ -25,6 +25,7 @@ const client = axios.create({
 ```
 
 ## Create Vuex module
+Before use built-in components like `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `articles` for the `Articles` collection.
 
 ##### 1. Define collection model with default fields.
 
@@ -59,6 +60,7 @@ new Vuex.Store({
 ```
 
 ## Load items
+Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
 
 ##### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript
@@ -105,7 +107,7 @@ export default {
 ```
 
 ## Manage an item
-You are able to create, update or remove collection item.
+You are able to create, update or remove collection item by built-in component `ItemEditor`. Same as above `ItemEditor` has a scope of default slot which provides specific methods and properties.
 
 ##### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript

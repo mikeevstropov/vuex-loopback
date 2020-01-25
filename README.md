@@ -62,6 +62,20 @@ new Vuex.Store({
 ## Load items
 Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
 
+##### Scope properties
+
+- `items: object[]` - Loaded items.
+- `loading: boolean` - Loading state.
+- `page: number` - Current page.
+- `pages: number` - Total number of pages.
+- `hasMore: boolean` - Can we load more?
+
+##### Scope methods
+
+- `load()` - To load items.
+- `loadPage(page: number)` - To load specific page.
+- `loadMore()` - To load more items.
+
 ##### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript
 import {ItemsLoader} from 'vuex-loopback';
@@ -233,7 +247,7 @@ Let's see what it has.
 
 - `page` - Number of current page.
 - `totalPages` - Number of total pages.
-- `hasMore` - Can I load more? (lazy loading)
+- `hasMore` - Can we load more? (lazy loading)
 
 #### Mutations
 

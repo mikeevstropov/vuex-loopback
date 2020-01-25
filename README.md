@@ -83,19 +83,19 @@ export default {
   module="articles">
 
   <template
-    slot-scope="loader">
+    slot-scope="{items, hasMore, loadMore}">
     
     <!-- Item -->
     <div
       :key="item.id"
-      v-for="item in loader.items">
+      v-for="item in items">
       {{ item.name }}
     </div>
     
     <!-- More Button -->
     <button
-      v-if="loader.hasMore"
-      @click="loader.loadMore">
+      v-if="hasMore"
+      @click="loadMore">
       More
     </button>
     
@@ -133,15 +133,15 @@ export default {
   module="articles">
   
   <template
-    slot-scope="editor">
+    slot-scope="{item, set, save, remove}">
 
     <form
-      @submit.prevent="editor.save">
+      @submit.prevent="save">
       
       <!-- Name Field -->
       <input
-        :value="editor.item.name"
-        @input="editor.set({...editor.item, name: $event})"/>
+        :value="item.name"
+        @input="set({...item, name: $event})"/>
 
       <!-- Save Button -->
       <button
@@ -151,8 +151,8 @@ export default {
 
       <!-- Remove Button -->
       <button
-        v-if="editor.item.id"
-        @click="editor.remove">
+        v-if="item.id"
+        @click="remove">
         Remove
       </button>
   
@@ -170,12 +170,12 @@ export default {
   module="articles">
 
   <template
-    slot-scope="loader">
+    slot-scope="{items, hasMore, loadMore}">
     
     <!-- Item -->
     <div
       :key="item.id"
-      v-for="item in loader.items">
+      v-for="item in items">
       {{ item.name }}
       
       <!-- Edit Button -->
@@ -188,8 +188,8 @@ export default {
     
     <!-- More Button -->
     <button
-      v-if="loader.hasMore"
-      @click="loader.loadMore">
+      v-if="hasMore"
+      @click="loadMore">
       More
     </button>
     

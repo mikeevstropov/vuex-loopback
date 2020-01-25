@@ -1,7 +1,4 @@
-### Vuex module factory for Loopback
-___
-
-### Installing
+## Installing
 
 ##### 1. Install `axios` and `vuex-loopback`.
 ```
@@ -27,7 +24,7 @@ const client = axios.create({
 });
 ```
 
-### Create Vuex module
+## Create Vuex module
 
 ##### 1. Define collection model with default fields.
 
@@ -61,7 +58,7 @@ new Vuex.Store({
 });
 ```
 
-### Load items by `ItemsLoader`
+## Load items by `ItemsLoader`
 
 ##### 1. Import from `vuex-loopback`.
 ```javascript
@@ -107,7 +104,7 @@ export default {
 </items-loader>
 ```
 
-### Create, edit or remove an item by `ItemEditor`
+## Create, edit or remove an item by `ItemEditor`
 
 ##### 1. Import from `vuex-loopback`.
 ```javascript
@@ -203,7 +200,7 @@ export default {
 </item-editor>
 ```
 
-### What's next
+## Advanced usage
 
 Sometimes you may want to use Vuex Module directly.  
 Let's see what it has.
@@ -325,7 +322,7 @@ affect:
   - `loading`
   - `items`
 
-### Todo
+## Todo
 
 * [x] State factory.
 * [x] Mutations factory.

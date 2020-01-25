@@ -146,7 +146,7 @@ You are able to create, update or remove collection item by built-in component `
 
 - `edit(item: object)` - To select or create item if no argument specified.
 - `set(item: object)` - To update selected or created item temporary.
-- `save()` - To commit temporary changes applied by `set` method.
+- `save()` - To commit temporary changes applied by method `set`.
 - `remove()` - To remove selected item from collection.
 
 \* *All properties and methods are accessible by reference of a component (`ref` attribute).*

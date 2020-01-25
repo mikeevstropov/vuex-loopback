@@ -59,7 +59,6 @@ new Vuex.Store({
 ```
 
 ## Load items
-Now you can load collection items.
 
 ##### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript

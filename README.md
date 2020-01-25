@@ -107,7 +107,7 @@ export default {
 ```
 
 ## Manage an item
-You are able to create, update or remove collection item by built-in component `ItemEditor`. Same as above, `ItemEditor` has scope of default slot which has specific methods and properties.
+You are able to create, update or remove collection item by built-in component `ItemEditor`. Same as above `ItemEditor` has a scope of default slot which provides specific methods and properties.
 
 ##### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript

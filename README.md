@@ -76,6 +76,10 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 - `loadPage(page: number)` - To load specific page.
 - `loadMore()` - To load more items.
 
+*All properties and methods are accessible by component directly.*
+
+#### Basic example
+
 ##### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript
 import {ItemsLoader} from 'vuex-loopback';
@@ -122,6 +126,22 @@ export default {
 
 ## Manage an item
 You are able to create, update or remove collection item by built-in component `ItemEditor`. Same as above `ItemEditor` has a scope of default slot which provides specific methods and properties.
+
+##### Scope properties
+
+- `item: object` - Selected item by method `edit`.
+- `loading: boolean` - Loading state of `save` and `remove` methods.
+
+##### Scope methods
+
+- `edit(item: object)` - To select an item or create a new temp item if no argument specified.
+- `set(item: object)` - To update selected item.
+- `save()` - To commit changes applied by method `set`.
+- `remove()` - To remove selected item from collection.
+
+*All properties and methods are accessible by component directly.*
+
+#### Basic example
 
 ##### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript

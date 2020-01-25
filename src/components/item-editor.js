@@ -22,18 +22,18 @@ export default {
     },
   },
   methods: {
-    set(item) {
-
-      this.$store.commit(
-        `${this.module}/SET_TEMP_ITEM`,
-        item,
-      );
-    },
     edit(item) {
 
       return this.$store.dispatch(
         `${this.module}/CREATE_TEMP_ITEM`,
         {model: item},
+      );
+    },
+    set(item) {
+
+      this.$store.commit(
+        `${this.module}/SET_TEMP_ITEM`,
+        item,
       );
     },
     async save() {
@@ -73,8 +73,8 @@ export default {
       this.$scopedSlots.default({
         item: this.item,
         loading: this.loading,
-        set: this.set,
         edit: this.edit,
+        set: this.set,
         save: this.save,
         remove: this.remove,
       }),

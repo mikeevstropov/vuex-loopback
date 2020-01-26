@@ -309,63 +309,43 @@ Let's see what it has.
 
 #### Actions:
 
-- `FETCH_ITEM({id: number|string, filter: object = {}, noTempItem: boolean = false})`  
-affect:
-  - `loading`
-  - `item`
-  - `tempItem`
+- `FETCH_ITEM(payload)`
+  - `id: number|string`
+  - `filter: object = {}`
+  - `noTempItem: boolean = false`
 
-- `FETCH_ITEMS({filter: object = {}, noGlobals: boolean = false, append: boolean = false})`  
-affect:
-  - `loading`
-  - `items`
-  - `total`
+- `FETCH_ITEMS(payload)`  
+  - `filter: object = {}`
+  - `noGlobals: boolean = false`
+  - `append: boolean = false`
 
-- `CREATE_ITEM({data: object, filter: object = {}})`  
-affect:
-  - `loading`
-  - `items`
+- `CREATE_ITEM(payload)`  
+  - `data: object`
+  - `filter: object = {}`
 
-- `PATCH_ITEM({id: number|string, data: object, filter: object = {}})`  
-affect:
-  - `loading`
-  - `item`
-  - `items`
+- `PATCH_ITEM(payload)`  
+  - `id: number|string`
+  - `data: object`
+  - `filter: object = {}`
 
 - `REMOVE_ITEM(id: number|string)`  
-affect:
-  - `loading`
-  - `item`
-  - `items`
 
-- `CREATE_TEMP_ITEM({model: object = undefined})`  
-affect:
-  - `tempItem`
+- `CREATE_TEMP_ITEM(payload)`  
+  - `model: object = undefined`
 
-- `PUT_TEMP_ITEM({filter: object = {}, existed: boolean = false, reset: boolean = false})`  
-affect:
-  - `loading`
-  - `item`
-  - `items`
-  - `tempItem`
+- `PUT_TEMP_ITEM(payload)`  
+  - `filter: object = {}`
+  - `existed: boolean = false`
+  - `reset: boolean = false`
 
-- `SEARCH_ITEMS({query: string = '', searchBy: string[] = null})`  
-affect:
-  - `loading`
-  - `item`
-  - `items`
-  - `total`
+- `SEARCH_ITEMS()`  
+  - `query: string = ''`
+  - `searchBy: string[] = null`
 
-- `FETCH_PAGE({page: number = 1})`  
-affect:
-  - `loading`
-  - `items`
-  - `total`
-  
+- `FETCH_PAGE(payload)`  
+  - `page: number = 1`
+
 - `FETCH_MORE()`  
-affect:
-  - `loading`
-  - `items`
 
 ## Todo
 

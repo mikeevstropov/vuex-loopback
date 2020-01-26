@@ -269,43 +269,43 @@ Let's see what it has.
 
 #### Getters
 
-- `page` - Number of current page.
-- `totalPages` - Number of total pages.
-- `hasMore` - Can we load more? (lazy loading)
+- `page: number` - Number of current page.
+- `totalPages: number` - Number of total pages.
+- `hasMore: boolean` - Can we load more? (lazy loading)
 
 #### Mutations
 
-- RESET
-- SET_ITEM (`value`)
-- RESET_ITEM
-- SET_TEMP_ITEM (`value`)
-- RESET_TEMP_ITEM
-- SET_ITEMS (`value`)
-- RESET_ITEMS
-- SET_SKIP (`value`)
-- RESET_SKIP
-- SET_LIMIT (`value`)
-- RESET_LIMIT
-- SET_TOTAL (`value`)
-- RESET_TOTAL
-- SET_ORDER_BY (`value`)
-- RESET_ORDER_BY
-- SET_ORDER_DESC (`value`)
-- RESET_ORDER_DESC
-- SET_SEARCH_BY (`value`)
-- RESET_SEARCH_BY
-- SET_SEARCH_QUERY (`value`)
-- RESET_SEARCH_QUERY
-- SET_WHERE (`value`)
-- RESET_WHERE
-- SET_LOADING (`value`)
-- RESET_LOADING
-- SET_INCLUDE (`value`)
-- RESET_INCLUDE
-- SET_FIELDS (`value`)
-- RESET_FIELDS
-- UPDATE_ITEM (`item`)
-- REMOVE_ITEM (`id`)
+- `RESET`
+- `SET_ITEM(value: object)`
+- `RESET_ITEM`
+- `SET_TEMP_ITEM(value: object)`
+- `RESET_TEMP_ITEM`
+- `SET_ITEMS(value: object[])`
+- `RESET_ITEMS`
+- `SET_SKIP(value: number)`
+- `RESET_SKIP`
+- `SET_LIMIT(value: number)`
+- `RESET_LIMIT`
+- `SET_TOTAL(value: number)`
+- `RESET_TOTAL`
+- `SET_ORDER_BY(value: string)`
+- `RESET_ORDER_BY`
+- `SET_ORDER_DESC(value: boolean)`
+- `RESET_ORDER_DESC`
+- `SET_SEARCH_BY(value: string[])`
+- `RESET_SEARCH_BY`
+- `SET_SEARCH_QUERY(value: string)`
+- `RESET_SEARCH_QUERY`
+- `SET_WHERE(value: object)`
+- `RESET_WHERE`
+- `SET_LOADING(value: boolean)`
+- `RESET_LOADING`
+- `SET_INCLUDE(value: string[])`
+- `RESET_INCLUDE`
+- `SET_FIELDS(value: string[])`
+- `RESET_FIELDS`
+- `UPDATE_ITEM(item: object)`
+- `REMOVE_ITEM(id: number | string)`
 
 #### Actions:
 

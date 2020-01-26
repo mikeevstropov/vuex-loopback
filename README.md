@@ -78,8 +78,8 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 - `loadPage(page: number)` - Load specific page.
 - `loadMore()` - Load more items.
 
-\* *All properties and methods of slot scope are accessible by component reference (`ref` attribute).*  
-\* *Component will load items automatically in `mounted` hook.*
+\* *Component will load items automatically if prop `noAutoload` has not specified.*  
+\* *All properties and methods of slot scope are accessible by component reference (`ref` attribute).*
 
 #### Basic example
 

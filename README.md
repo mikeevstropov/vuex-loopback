@@ -67,19 +67,16 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 - `module: string` - Name of Vuex module.
 - `noAutoload: boolean` - Do not autoload items after mount.
 
-##### Scope properties
+##### Scope of default slot
 
 - `items: object[]` - Loaded items.
 - `loading: boolean` - Loading state.
 - `page: number` - Current page.
 - `pages: number` - Total number of pages.
 - `hasMore: boolean` - Can we load more?
-
-##### Scope methods
-
-- `load()` - To load items.
-- `loadPage(page: number)` - To load specific page.
-- `loadMore()` - To load more items.
+- `load()` - Load items.
+- `loadPage(page: number)` - Load specific page.
+- `loadMore()` - Load more items.
 
 \* *All properties and methods are accessible by reference of a component (`ref` attribute).*  
 \* *Component will load items automatically in `mounted` hook.*
@@ -137,17 +134,14 @@ You are able to create, update or remove collection item by built-in component `
 
 - `module: string` - Name of Vuex module.
 
-##### Scope properties
+##### Scope of default slot
 
 - `item: object` - Selected item.
 - `loading: boolean` - Loading state.
-
-##### Scope methods
-
-- `edit(item: object)` - To select or create item if no argument specified.
-- `set(item: object)` - To update selected or created item temporary.
-- `save()` - To commit temporary changes applied by method `set`.
-- `remove()` - To remove selected item from collection.
+- `edit(item: object)` - Select or create item if no argument specified.
+- `set(item: object)` - Update selected or created item temporary.
+- `save()` - Commit temporary changes applied by method `set`.
+- `remove()` - Remove selected item from collection.
 
 \* *All properties and methods are accessible by reference of a component (`ref` attribute).*
 

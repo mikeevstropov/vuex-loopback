@@ -305,64 +305,64 @@ Let's see what it has.
 - `SET_FIELDS(value: string[])`
 - `RESET_FIELDS`
 - `UPDATE_ITEM(item: object)`
-- `REMOVE_ITEM(id: number | string)`
+- `REMOVE_ITEM(id: number|string)`
 
 #### Actions:
 
-- FETCH_ITEM (`{id, filter = {}, noTempItem = false}`)  
+- `FETCH_ITEM({id: number|string, filter: object = {}, noTempItem: boolean = false})`  
 affect:
   - `loading`
   - `item`
   - `tempItem`
 
-- FETCH_ITEMS (`{filter = {}, noGlobals = false, append = false}`)  
+- `FETCH_ITEMS({filter: object = {}, noGlobals: boolean = false, append: boolean = false})`  
 affect:
   - `loading`
   - `items`
   - `total`
 
-- CREATE_ITEM (`{data, filter = {}}`)  
+- `CREATE_ITEM({data: object, filter: object = {}})`  
 affect:
   - `loading`
   - `items`
 
-- PATCH_ITEM (`{id, data, filter = {}}`)  
-affect:
-  - `loading`
-  - `item`
-  - `items`
-
-- REMOVE_ITEM (`id`)  
+- `PATCH_ITEM({id: number|string, data: object, filter: object = {}})`  
 affect:
   - `loading`
   - `item`
   - `items`
 
-- CREATE_TEMP_ITEM (`{model}`)  
+- `REMOVE_ITEM(id: number|string)`  
+affect:
+  - `loading`
+  - `item`
+  - `items`
+
+- `CREATE_TEMP_ITEM({model: object = undefined})`  
 affect:
   - `tempItem`
 
-- PUT_TEMP_ITEM (`{filter = {}, existed = false, reset = false}`)  
+- `PUT_TEMP_ITEM({filter: object = {}, existed: boolean = false, reset: boolean = false})`  
 affect:
   - `loading`
   - `item`
   - `items`
   - `tempItem`
 
-- SEARCH_ITEMS (`{query = '', searchBy = null}`)  
+- `SEARCH_ITEMS({query: string = '', searchBy: string[] = null})`  
 affect:
   - `loading`
   - `item`
   - `items`
   - `total`
 
-- FETCH_PAGE (`{page = 1}`)  
+- `FETCH_PAGE({page: number = 1})`  
 affect:
   - `loading`
   - `items`
   - `total`
   
-- FETCH_MORE  
+- `FETCH_MORE()`  
 affect:
   - `loading`
   - `items`
@@ -373,4 +373,6 @@ affect:
 * [x] Mutations factory.
 * [x] Actions factory.
 * [x] Getters factory.
-* [ ] Documentation.
+* [x] Loader component.
+* [x] Editor component. 
+* [ ] Usage example.

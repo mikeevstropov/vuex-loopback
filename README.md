@@ -355,4 +355,5 @@ Let's see what it has.
 * [x] Getters factory.
 * [x] Loader component.
 * [x] Editor component. 
-* [ ] Usage example.
+* [ ] Documentation.
+* [ ] Examples.

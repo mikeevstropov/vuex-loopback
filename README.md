@@ -338,7 +338,7 @@ Let's see what it has.
   - `existed: boolean = false`
   - `reset: boolean = false`
 
-- `SEARCH_ITEMS()`  
+- `SEARCH_ITEMS(payload)`  
   - `query: string = ''`
   - `searchBy: string[] = null`
 

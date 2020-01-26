@@ -252,20 +252,20 @@ Let's see what it has.
 
 #### State
 
-- item - `null`
-- tempItem - `null`
-- items - `[]`
-- skip - `0`
-- limit - `20`
-- total - `0`
-- orderBy - `''`
-- orderDesc - `false`
-- searchBy - `['name']`
-- searchQuery - `''`
-- where - `{}`
-- loading - `false`
-- include - `[]`
-- fields - `[]`
+- `item: object = null` - Loaded item.
+- `tempItem: object = null` - Clone of `item`.
+- `items: object[] = []` - Loaded items.
+- `skip: number = 0` - Items fetching offset.
+- `limit: number = 20` - Items fetching limit.
+- `total: number = 0` - Total number of collection items.
+- `orderBy: string = ''` - Sort by specific field.
+- `orderDesc: boolean = ''` - Sort descending.
+- `searchBy: string[] = ['name']` - Search by specific field.
+- `searchQuery: string = ''` - Searching query.
+- `where: object = {}` - Condition of fetching items.
+- `loading: boolean = false` - State of loading.
+- `include: string[] = []` - Fetching relations.
+- `fields: string[] = []` - Fetching fields.
 
 #### Getters
 

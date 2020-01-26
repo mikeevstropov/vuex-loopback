@@ -255,15 +255,15 @@ Let's see what it has.
 - `item: object = null` - Loaded item.
 - `tempItem: object = null` - Clone of `item`.
 - `items: object[] = []` - Loaded items.
-- `skip: number = 0` - Items fetching offset.
-- `limit: number = 20` - Items fetching limit.
-- `total: number = 0` - Total number of collection items.
-- `orderBy: string = ''` - Sort by specific field.
+- `skip: number = 0` - Items offset.
+- `limit: number = 20` - Items limit.
+- `total: number = 0` - Total items.
+- `orderBy: string = ''` - Sort by field.
 - `orderDesc: boolean = ''` - Sort descending.
-- `searchBy: string[] = ['name']` - Search by specific field.
+- `searchBy: string[] = ['name']` - Search by fields.
 - `searchQuery: string = ''` - Searching query.
-- `where: object = {}` - Condition of fetching items.
-- `loading: boolean = false` - State of loading.
+- `where: object = {}` - Fetching condition.
+- `loading: boolean = false` - Loading state.
 - `include: string[] = []` - Fetching relations.
 - `fields: string[] = []` - Fetching fields.
 

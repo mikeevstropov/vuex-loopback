@@ -78,7 +78,7 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 - `loadPage(page: number)` - Load specific page.
 - `loadMore()` - Load more items.
 
-\* *All properties and methods are accessible by reference of a component (`ref` attribute).*  
+\* *All properties and methods of slot scope are accessible by component reference (`ref` attribute).*  
 \* *Component will load items automatically in `mounted` hook.*
 
 #### Basic example
@@ -143,7 +143,7 @@ You are able to create, update or remove collection item by built-in component `
 - `save()` - Commit temporary changes applied by method `set`.
 - `remove()` - Remove selected item from collection.
 
-\* *All properties and methods are accessible by reference of a component (`ref` attribute).*
+\* *All properties and methods of slot scope are accessible by component reference (`ref` attribute).*
 
 #### Basic example
 

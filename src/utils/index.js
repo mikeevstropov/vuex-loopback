@@ -52,7 +52,7 @@ export function searchStateToFilter(state, filter) {
     });
   });
 
-  if (condition.length)
+  if (!condition.length)
     return;
 
   filter.where = filter.where || {};

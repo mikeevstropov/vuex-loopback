@@ -37,29 +37,45 @@ export function searchStateToFilter(state, filter) {
     .split(' ')
     .filter(v => v);
 
-  const condition = [];
+  const stringCond = [];
+  const numberCond = [];
 
   words.forEach(word => {
 
     fields.forEach(field => {
 
-      condition.push({
+      stringCond.push({
         [field]: {
           like: word,
           options: 'i',
         },
       });
+
+      if (/^\d+$/.test(word))
+        numberCond.push({
+          [field]: parseInt(
+            word,
+            10,
+          ),
+        });
     });
   });
 
-  if (!condition.length)
-    return;
+  if (
+    !stringCond.length &&
+    !numberCond.length
+  ) return;
 
   filter.where = filter.where || {};
-  filter.where.and = filter.where.and || [];
+  filter.where.or = filter.where.or || [];
 
-  filter.where.and = [
-    ...filter.where.and,
-    ...condition,
-  ];
+  if (stringCond)
+    filter.where.or.push({
+      and: stringCond,
+    });
+
+  if (numberCond)
+    filter.where.or.push({
+      and: numberCond,
+    });
 }

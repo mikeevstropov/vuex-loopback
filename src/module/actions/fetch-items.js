@@ -27,7 +27,7 @@ export function fetchItems({
 
     if (!noGlobals) {
 
-      mergedFilter = {
+      mergedFilter = cloneDeep({
         skip: state.skip,
         limit: state.limit,
         where: state.where,
@@ -35,7 +35,7 @@ export function fetchItems({
         fields: state.fields,
         order: orderFromState(state),
         ...mergedFilter,
-      };
+      });
 
       searchStateToFilter(state, mergedFilter);
     }

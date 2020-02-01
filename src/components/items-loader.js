@@ -33,21 +33,21 @@ export default {
     },
     page() {
 
-      return this.$store.state[
-        this.module
-      ].page;
+      return this.$store.getters[
+        `${this.module}/page`
+      ];
     },
     pages() {
 
-      return this.$store.state[
-        this.module
-      ].pages;
+      return this.$store.getters[
+        `${this.module}/totalPages`
+      ];
     },
     hasMore() {
 
-      return this.$store.state[
-        this.module
-      ].hasMore;
+      return this.$store.getters[
+        `${this.module}/hasMore`
+      ];
     },
   },
   methods: {

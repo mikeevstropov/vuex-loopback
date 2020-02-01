@@ -67,15 +67,22 @@ export function searchStateToFilter(state, filter) {
   ) return;
 
   filter.where = filter.where || {};
-  filter.where.or = filter.where.or || [];
 
-  if (stringCond)
-    filter.where.or.push({
-      and: stringCond,
-    });
+  if (
+    stringCond.length &&
+    numberCond.length
+  ) {
 
-  if (numberCond)
-    filter.where.or.push({
-      and: numberCond,
-    });
+    filter.where.or = filter.where.or || [];
+    filter.where.or.push({and: stringCond});
+    filter.where.or.push({and: numberCond});
+
+  } else {
+
+    filter.where.and = [
+      ...(filter.where.and || []),
+      ...stringCond,
+      ...numberCond,
+    ];
+  }
 }

@@ -1,9 +1,11 @@
 ![npm version](https://badge.fury.io/js/vuex-loopback.svg)
 ![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
 
+<br/>
 <div align="center">
   <img alt="logo" src="assets/logo.svg"/>
 </div>
+<br/>
 
 ## Installing
 

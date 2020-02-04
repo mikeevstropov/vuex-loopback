@@ -1,3 +1,10 @@
+![npm version](https://badge.fury.io/js/vuex-loopback.svg)
+![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)
+
+<div align="center">
+  <img alt="logo" src="assets/logo.svg"/>
+</div>
+
 ## Installing
 
 ##### 1. Install `axios` and `vuex-loopback`.

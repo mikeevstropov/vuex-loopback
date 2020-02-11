@@ -4,7 +4,7 @@
 <br/>
 <br/>
 <div align="center">
-  <img alt="logo" src="assets/logo.svg"/>
+  <img alt="logo" src="assets/logo.png"/>
 </div>
 <br/>
 
@@ -143,6 +143,7 @@ You are able to create, update or remove collection item by built-in component `
 ##### Props
 
 - `module: string` - Name of Vuex module.
+- `extend: object` - Extend an item fields.
 
 ##### Scope of default slot
 

@@ -6,6 +6,10 @@ export default {
       type: String,
       required: true,
     },
+    extend: {
+      type: Object,
+      default: null,
+    },
   },
   computed: {
     item() {
@@ -23,6 +27,11 @@ export default {
   },
   methods: {
     edit(item) {
+
+      item = {
+        ...this.extend,
+        ...item,
+      };
 
       return this.$store.dispatch(
         `${this.module}/CREATE_TEMP_ITEM`,

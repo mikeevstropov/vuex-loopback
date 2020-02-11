@@ -345,7 +345,7 @@ Let's see what it has.
 
 - `PUT_TEMP_ITEM(payload)`  
   - `filter: object = {}`
-  - `existed: boolean = false`
+  - `create: boolean = false`
   - `reset: boolean = false`
 
 - `SEARCH_ITEMS(payload)`  

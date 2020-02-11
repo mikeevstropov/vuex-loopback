@@ -4,7 +4,7 @@
 <br/>
 <br/>
 <div align="center">
-  <img alt="logo" src="https://raw.githubusercontent.com/mikeevstropov/vuex-loopback/master/assets/logo.svg"/>
+  <img alt="logo" src="assets/logo.svg"/>
 </div>
 <br/>
 

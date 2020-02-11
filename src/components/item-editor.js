@@ -26,7 +26,7 @@ export default {
 
       return this.$store.dispatch(
         `${this.module}/CREATE_TEMP_ITEM`,
-        {model: item},
+        item,
       );
     },
     set(item) {

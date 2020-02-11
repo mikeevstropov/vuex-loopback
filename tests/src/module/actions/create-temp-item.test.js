@@ -3,13 +3,18 @@ import {createTempItem} from '@src/module/actions/create-temp-item';
 
 describe('Checking action NEW_TEMP_ITEM.', () => {
 
-  test('Can dispatch with model from "options".', () => {
+  const action = createTempItem({
+    model: customerModel,
+  });
 
-    const action = createTempItem({
-      model: customerModel,
-    });
+  let commit;
 
-    const commit = jest.fn(() => {});
+  beforeEach(() => {
+
+    commit = jest.fn(() => {});
+  });
+
+  test('Can dispatch without "item".', () => {
 
     const customer = action({commit});
 
@@ -21,22 +26,21 @@ describe('Checking action NEW_TEMP_ITEM.', () => {
 
     expect(commit.mock.calls[0][0]).toBe('SET_TEMP_ITEM');
     expect(commit.mock.calls[0][1]).toEqual(customerModel);
-    expect(commit.mock.calls[0][1]).toBe(customer);
+    expect(commit.mock.calls[0][1]).toEqual(customer);
   });
 
-  test('Can dispatch with model from "payload".', () => {
+  test('Can dispatch with "item".', () => {
 
-    const dummyModel = {};
+    const id = 5;
 
-    const action = createTempItem({
-      model: dummyModel,
-    });
-
-    const commit = jest.fn(() => {});
+    const expected = {
+      ...customerModel,
+      id,
+    };
 
     const customer = action(
       {commit},
-      {model: customerModel},
+      {id},
     );
 
     // Number of commits.
@@ -46,8 +50,7 @@ describe('Checking action NEW_TEMP_ITEM.', () => {
     // Update temp item.
 
     expect(commit.mock.calls[0][0]).toBe('SET_TEMP_ITEM');
-    expect(commit.mock.calls[0][1]).not.toEqual(dummyModel);
-    expect(commit.mock.calls[0][1]).toEqual(customerModel);
-    expect(commit.mock.calls[0][1]).toBe(customer);
+    expect(commit.mock.calls[0][1]).toEqual(expected);
+    expect(commit.mock.calls[0][1]).toEqual(customer);
   });
 });

@@ -340,8 +340,7 @@ Let's see what it has.
 
 - `REMOVE_ITEM(id: number|string)`  
 
-- `CREATE_TEMP_ITEM(payload)`  
-  - `model: object = undefined`
+- `CREATE_TEMP_ITEM(item: object = null)`
 
 - `PUT_TEMP_ITEM(payload)`  
   - `filter: object = {}`

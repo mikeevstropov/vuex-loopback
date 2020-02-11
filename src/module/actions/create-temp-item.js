@@ -9,10 +9,12 @@ export function createTempItem({model}) {
    * @param {object} payload
    * @return {object}
    */
-  return function ({commit}, payload = {}) {
+  return function ({commit}, item = null) {
 
-    const payloadModel = payload && payload.model;
-    const item = cloneDeep(payloadModel || model);
+    item = cloneDeep({
+      ...model,
+      ...item,
+    });
 
     commit('SET_TEMP_ITEM', item);
 

@@ -107,14 +107,14 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
     expect(payload.data).toBe(data);
   });
 
-  test('Dispatch with "create" option and non-empty "id" field will create an item.', async () => {
+  test('Dispatch with "noPatch" option and non-empty "id" field will create an item.', async () => {
 
     const data = {id: 5};
     const state = getState(data);
 
     const payload = await action(
       {state, commit, dispatch},
-      {create: true},
+      {noPatch: true},
     );
 
     // Number of commits and dispatches.

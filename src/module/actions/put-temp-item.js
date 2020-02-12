@@ -10,13 +10,13 @@ export function putTempItem() {
    */
   return async function (
     {state, commit, dispatch},
-    {filter = {}, create = false, reset = false} = {},
+    {filter = {}, noPatch = false, reset = false} = {},
   ) {
 
     if (!state.tempItem)
       throw new Error('No temp item to commit.');
 
-    const action = !create && state.tempItem.id
+    const action = !noPatch && state.tempItem.id
       ? 'PATCH_ITEM'
       : 'CREATE_ITEM';
 

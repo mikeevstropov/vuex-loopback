@@ -2,19 +2,17 @@
   "name": "vuex-loopback",
   "version": "1.4.2",
   "description": "Vuex module factory for Loopback",
-  "main": "dist/main.js",
   "repository": "git@github.com:mikeevstropov/vuex-loopback.git",
-  "author": {
-    "name": "Mike Evstropov",
-    "email": "mike.evstropov@gmail.com"
-  },
+  "author": "Mike Evstropov <mike.evstropov@gmail.com>",
   "license": "Apache-2.0",
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0"
-    }
+  "keywords": [
+    "vue",
+    "vuex",
+    "loopback",
+    "strongloop",
+    "vuex-loopback"
   ],
+  "main": "dist/main.js",
   "scripts": {
     "build": "node node_modules/webpack-cli/bin/cli",
     "lint": "node node_modules/eslint/bin/eslint .",

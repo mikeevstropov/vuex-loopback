@@ -3,7 +3,7 @@
   "version": "1.4.2",
   "description": "Vuex module factory for Loopback",
   "repository": "git@github.com:mikeevstropov/vuex-loopback.git",
-  "author": "Mike Evstropov <mike.evstropov@gmail.com>",
+  "author": "Mikhail Evstropov <mike.evstropov@gmail.com>",
   "license": "Apache-2.0",
   "keywords": [
     "vue",

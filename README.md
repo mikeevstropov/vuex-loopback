@@ -357,6 +357,28 @@ Let's see what it has.
 
 - `FETCH_MORE()`  
 
+## Tests
+
+##### 1. Clone `loopback-example-relations` and start web-server.
+```
+git clone https://github.com/strongloop/loopback-example-relations.git
+cd loopback-example-relations
+yarn
+yarn start
+```
+
+##### 2. Clone `vuex-loopback` in new terminal session.
+```
+git clone https://github.com/mikeevstropov/vuex-loopback.git
+cd vuex-loopback
+yarn
+```
+
+##### 3. Run tests.
+```
+yarn test
+```
+
 ## Todo
 
 * [x] State factory.
@@ -364,6 +386,6 @@ Let's see what it has.
 * [x] Actions factory.
 * [x] Getters factory.
 * [x] Loader component.
-* [x] Editor component. 
+* [x] Editor component.
 * [ ] Documentation.
 * [ ] Examples.

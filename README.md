@@ -367,7 +367,7 @@ yarn
 yarn start
 ```
 
-##### 2. Clone `vuex-loopback` and run the tests.
+##### 2. Clone `vuex-loopback` and run the tests in new terminal session.
 ```
 git clone https://github.com/mikeevstropov/vuex-loopback.git
 cd vuex-loopback

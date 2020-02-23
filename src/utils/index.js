@@ -30,59 +30,44 @@ export function searchStateToFilter(state, filter) {
     !state.searchBy.length
   ) return;
 
-  const fields = state.searchBy;
+  const fields = state
+    .searchBy;
 
   const words = state
     .searchQuery
     .split(' ')
     .filter(v => v);
 
-  const stringCond = [];
-  const numberCond = [];
+  filter.where = filter.where || {};
+  filter.where.and = filter.where.and || [];
+
+  const and = filter
+    .where
+    .and;
 
   words.forEach(word => {
 
+    const or = [];
+
     fields.forEach(field => {
 
-      stringCond.push({
+      or.push({
         [field]: {
           like: word,
           options: 'i',
         },
       });
-
-      if (/^\d+$/.test(word))
-        numberCond.push({
-          [field]: parseInt(
-            word,
-            10,
-          ),
-        });
     });
+
+    const number = parseInt(word, 10);
+
+    if (!Number.isNaN(number))
+      fields.forEach(
+        field => or.push({
+          [field]: number,
+        }),
+      );
+
+    and.push({or});
   });
-
-  if (
-    !stringCond.length &&
-    !numberCond.length
-  ) return;
-
-  filter.where = filter.where || {};
-
-  if (
-    stringCond.length &&
-    numberCond.length
-  ) {
-
-    filter.where.or = filter.where.or || [];
-    filter.where.or.push({and: stringCond});
-    filter.where.or.push({and: numberCond});
-
-  } else {
-
-    filter.where.and = [
-      ...(filter.where.and || []),
-      ...stringCond,
-      ...numberCond,
-    ];
-  }
 }

@@ -50,11 +50,12 @@ export default {
       if (!this.item)
         return;
 
-      await this.$store.dispatch(
+      const item = await this.$store.dispatch(
         `${this.module}/PUT_TEMP_ITEM`,
       );
 
-      this.$emit('saved', this.item);
+      if (item)
+        this.$emit('saved', item);
     },
     async remove() {
 
@@ -63,12 +64,13 @@ export default {
         !this.item.id
       ) return;
 
-      await this.$store.dispatch(
+      const removed = await this.$store.dispatch(
         `${this.module}/REMOVE_ITEM`,
         this.item.id,
       );
 
-      this.$emit('removed');
+      if (removed)
+        this.$emit('removed');
     },
   },
   render(createElement) {

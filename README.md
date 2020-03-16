@@ -375,6 +375,10 @@ yarn
 yarn test
 ```
 
+## Examples
+
+Vue CLI project [vuex-loopback-example](https://github.com/mikeevstropov/vuex-loopback-example)
+
 ## Todo
 
 * [x] State factory.
@@ -384,4 +388,4 @@ yarn test
 * [x] Loader component.
 * [x] Editor component.
 * [ ] Documentation.
-* [ ] Examples.
+* [x] Examples.

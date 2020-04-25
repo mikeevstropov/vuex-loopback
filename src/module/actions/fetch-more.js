@@ -11,7 +11,7 @@ export function fetchMore() {
     {state, commit, dispatch},
   ) {
 
-    const skip = state.skip + state.items.length;
+    const skip = state.items.length;
     commit('SET_SKIP', skip);
 
     return dispatch(

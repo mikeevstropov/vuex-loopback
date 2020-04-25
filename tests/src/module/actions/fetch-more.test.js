@@ -11,53 +11,53 @@ describe('Checking action FETCH_MORE.', () => {
       skip: 0,
     };
 
-    const commit = jest.fn(() => {});
-    const dispatch = jest.fn(() => {});
+    const dispatch = jest.fn(
+      (name, payload) => {
 
-    await action({
-      state,
-      commit,
-      dispatch,
-    });
+        if (name === 'FETCH_ITEMS')
+          state.items.push(payload);
+      },
+    );
 
-    state.items.push({});
+    const commit = jest.fn(
+      (name, payload) => {
 
-    // Number of commits and dispatches.
+        if (name === 'SET_SKIP')
+          state.skip = payload;
+      },
+    );
 
-    expect(commit.mock.calls.length).toBe(1);
-    expect(dispatch.mock.calls.length).toBe(1);
+    const skipIs = value => {
 
-    // Set skip.
+      // Number of commits and dispatches.
 
-    expect(commit.mock.calls[0][0]).toBe('SET_SKIP');
-    expect(commit.mock.calls[0][1]).toBe(0);
+      expect(commit.mock.calls.length).toBe(1);
+      expect(dispatch.mock.calls.length).toBe(1);
 
-    // Fetch items.
+      // Set skip.
 
-    expect(dispatch.mock.calls[0][0]).toBe('FETCH_ITEMS');
-    expect(dispatch.mock.calls[0][1]).toEqual({append: true});
+      expect(commit.mock.calls[0][0]).toBe('SET_SKIP');
+      expect(commit.mock.calls[0][1]).toBe(value);
 
-    await action({
-      state,
-      commit,
-      dispatch,
-    });
+      // Fetch items.
 
-    state.items.push({});
+      expect(dispatch.mock.calls[0][0]).toBe('FETCH_ITEMS');
+      expect(dispatch.mock.calls[0][1]).toEqual({append: true});
 
-    // Number of commits and dispatches.
+      // Clean stack.
 
-    expect(commit.mock.calls.length).toBe(2);
-    expect(dispatch.mock.calls.length).toBe(2);
+      commit.mock.calls.pop();
+      dispatch.mock.calls.pop();
+    };
 
-    // Set skip.
+    await action({state, commit, dispatch});
+    skipIs(0);
 
-    expect(commit.mock.calls[1][0]).toBe('SET_SKIP');
-    expect(commit.mock.calls[1][1]).toBe(1);
+    await action({state, commit, dispatch});
+    skipIs(1);
 
-    // Fetch items.
+    await action({state, commit, dispatch});
+    skipIs(2);
 
-    expect(dispatch.mock.calls[1][0]).toBe('FETCH_ITEMS');
-    expect(dispatch.mock.calls[1][1]).toEqual({append: true});
   });
 });

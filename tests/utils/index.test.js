@@ -1,6 +1,42 @@
+import {orderFromState} from '@src/utils';
 import {searchStateToFilter} from '@src/utils';
 
 describe('Utils checking.', () => {
+
+  test('Can convert order state to order query.', () => {
+
+    const state = {
+      orderBy: 'field',
+      orderDesc: true,
+    };
+
+    const expected = 'field DESC';
+
+    const result = orderFromState(state);
+
+    expect(result).toBe(expected);
+  });
+
+  test('Can convert array order state to order query.', () => {
+
+    const state = {
+      orderBy: [
+        'first ASC',
+        'second DESC',
+        'third ASC',
+      ],
+    };
+
+    const expected = [
+      'first ASC',
+      'second DESC',
+      'third ASC',
+    ];
+
+    const result = orderFromState(state);
+
+    expect(result).toEqual(expected);
+  });
 
   test('Can extend filter by search state.', () => {
 

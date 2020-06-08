@@ -10,11 +10,16 @@ export function orderFromState(state) {
   if (!state.orderBy)
     return '';
 
-  const direction = state.orderDesc
-    ? 'DESC'
-    : 'ASC';
+  if (typeof state.orderBy === 'string') {
 
-  return `${state.orderBy} ${direction}`;
+    const direction = state.orderDesc
+      ? 'DESC'
+      : 'ASC';
+
+    return `${state.orderBy} ${direction}`;
+  }
+
+  return state.orderBy;
 }
 
 /**

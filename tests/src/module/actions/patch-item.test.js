@@ -5,7 +5,7 @@ import {patchItem} from '@src/module/actions/patch-item';
 
 describe('Checking action PATCH_ITEM.', () => {
 
-  test('Can dispatch with "include" by "state".', async () => {
+  test('Can dispatch with "include" state.', async () => {
 
     const action = patchItem({
       client: api,
@@ -57,7 +57,7 @@ describe('Checking action PATCH_ITEM.', () => {
     expect(customer.accounts.length).toBe(2);
   });
 
-  test('Can dispatch with "include" by "filter".', async () => {
+  test('Can dispatch with "include" filter.', async () => {
 
     const action = patchItem({
       client: api,
@@ -106,7 +106,7 @@ describe('Checking action PATCH_ITEM.', () => {
     expect(customer.accounts.length).toBe(2);
   });
 
-  test('Can dispatch with "fields" by "state".', async () => {
+  test('Can dispatch with "fields" state.', async () => {
 
     const action = patchItem({
       client: api,
@@ -160,7 +160,7 @@ describe('Checking action PATCH_ITEM.', () => {
     expect(customer.emailList).toBeUndefined();
   });
 
-  test('Can dispatch with "fields" by "filter".', async () => {
+  test('Can dispatch with "fields" filter.', async () => {
 
     const action = patchItem({
       client: api,

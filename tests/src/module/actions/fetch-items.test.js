@@ -1,11 +1,14 @@
 import api from '@tests/api';
+import map from 'lodash/map';
+import min from 'lodash/min';
+import max from 'lodash/max';
 import {createState} from '@src/module/state';
 import {ApiError} from '@src/errors/api-error';
 import {fetchItems} from '@src/module/actions/fetch-items';
 
 describe('Checking action FETCH_ITEMS.', () => {
 
-  test('Can dispatch with "where" by "state".', async () => {
+  test('Can dispatch with "where" state.', async () => {
 
     const action = fetchItems({
       client: api,
@@ -56,7 +59,7 @@ describe('Checking action FETCH_ITEMS.', () => {
     expect(customers[0].id).toBe(id);
   });
 
-  test('Can dispatch with "where" by "filter".', async () => {
+  test('Can dispatch with "where" filter.', async () => {
 
     const action = fetchItems({
       client: api,
@@ -104,7 +107,7 @@ describe('Checking action FETCH_ITEMS.', () => {
     expect(customers[0].id).toBe(id);
   });
 
-  test('Can dispatch with "include" by "state".', async () => {
+  test('Can dispatch with "include" state.', async () => {
 
     const action = fetchItems({
       client: api,
@@ -160,7 +163,7 @@ describe('Checking action FETCH_ITEMS.', () => {
     expect(customers[0].accounts.length).toBe(2);
   });
 
-  test('Can dispatch with "include" by "filter".', async () => {
+  test('Can dispatch with "include" filter.', async () => {
 
     const action = fetchItems({
       client: api,
@@ -217,7 +220,7 @@ describe('Checking action FETCH_ITEMS.', () => {
     expect(customers[0].accounts.length).toBe(2);
   });
 
-  test('Can dispatch with "fields" by "state".', async () => {
+  test('Can dispatch with "fields" state.', async () => {
 
     const action = fetchItems({
       client: api,
@@ -278,7 +281,7 @@ describe('Checking action FETCH_ITEMS.', () => {
     expect(customers[0].emailList).toBeUndefined();
   });
 
-  test('Can dispatch with "fields" by "filter".', async () => {
+  test('Can dispatch with "fields" filter.', async () => {
 
     const action = fetchItems({
       client: api,
@@ -396,6 +399,152 @@ describe('Checking action FETCH_ITEMS.', () => {
 
     expect(customers.length > 1).toBeTrue();
     expect(customers[0]).toBe(existed);
+  });
+
+  test('Can dispatch with "orderBy" and "orderDesc" state.', async () => {
+
+    const action = fetchItems({
+      client: api,
+      collection: 'Customers',
+      onError: () => {},
+      onSuccess: () => {},
+    });
+
+    const commit = jest.fn(() => {});
+
+    const state = createState({
+      extension: {
+        orderBy: 'id',
+      },
+    });
+
+    // Fetching.
+
+    const customers = await action(
+      {state, commit},
+    );
+
+    state.orderDesc = true;
+
+    const descCustomers = await action(
+      {state, commit: () => {}},
+    );
+
+    // Number of commits.
+
+    expect(commit.mock.calls.length).toBe(4);
+
+    // Loading state.
+
+    expect(commit.mock.calls[0][0]).toBe('SET_LOADING');
+    expect(commit.mock.calls[0][1]).toBe(true);
+
+    // Update items.
+
+    expect(commit.mock.calls[1][0]).toBe('SET_ITEMS');
+    expect(commit.mock.calls[1][1]).toBe(customers);
+
+    // Update total.
+
+    expect(commit.mock.calls[2][0]).toBe('SET_TOTAL');
+    expect(commit.mock.calls[2][1]).toBeNumber();
+
+    // Reset loading state.
+
+    expect(commit.mock.calls[3][0]).toBe('RESET_LOADING');
+
+    // Customer has ascending order.
+
+    let ids = map(customers, 'id');
+    let minId = min(ids);
+    let maxId = max(ids);
+
+    expect(customers.length).toBe(ids.length);
+    expect(customers[0].id).toBe(minId);
+    expect(customers[ids.length - 1].id).toBe(maxId);
+
+    // Customer has descending order.
+
+    ids = map(descCustomers, 'id');
+    minId = min(ids);
+    maxId = max(ids);
+
+    expect(descCustomers.length).toBe(ids.length);
+    expect(descCustomers[0].id).toBe(maxId);
+    expect(descCustomers[ids.length - 1].id).toBe(minId);
+  });
+
+  test('Can dispatch with "orderBy" state as an array.', async () => {
+
+    const action = fetchItems({
+      client: api,
+      collection: 'Customers',
+      onError: () => {},
+      onSuccess: () => {},
+    });
+
+    const commit = jest.fn(() => {});
+
+    const state = createState({
+      extension: {
+        orderBy: ['id ASC'],
+      },
+    });
+
+    // Fetching.
+
+    const customers = await action(
+      {state, commit},
+    );
+
+    state.orderBy = ['id DESC'];
+
+    const descCustomers = await action(
+      {state, commit: () => {}},
+    );
+
+    // Number of commits.
+
+    expect(commit.mock.calls.length).toBe(4);
+
+    // Loading state.
+
+    expect(commit.mock.calls[0][0]).toBe('SET_LOADING');
+    expect(commit.mock.calls[0][1]).toBe(true);
+
+    // Update items.
+
+    expect(commit.mock.calls[1][0]).toBe('SET_ITEMS');
+    expect(commit.mock.calls[1][1]).toBe(customers);
+
+    // Update total.
+
+    expect(commit.mock.calls[2][0]).toBe('SET_TOTAL');
+    expect(commit.mock.calls[2][1]).toBeNumber();
+
+    // Reset loading state.
+
+    expect(commit.mock.calls[3][0]).toBe('RESET_LOADING');
+
+    // Customer has ascending order.
+
+    let ids = map(customers, 'id');
+    let minId = min(ids);
+    let maxId = max(ids);
+
+    expect(customers.length).toBe(ids.length);
+    expect(customers[0].id).toBe(minId);
+    expect(customers[ids.length - 1].id).toBe(maxId);
+
+    // Customer has descending order.
+
+    ids = map(descCustomers, 'id');
+    minId = min(ids);
+    maxId = max(ids);
+
+    expect(descCustomers.length).toBe(ids.length);
+    expect(descCustomers[0].id).toBe(maxId);
+    expect(descCustomers[ids.length - 1].id).toBe(minId);
   });
 
   test('Can call "onSuccess" callback.', async () => {

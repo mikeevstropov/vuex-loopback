@@ -18,7 +18,7 @@ describe('Checking action PUT_TEMP_ITEM.', () => {
     dispatch = jest.fn((action, payload) => payload);
   });
 
-  test('Can dispatch with "include" by "filter".', async () => {
+  test('Can dispatch with "include" filter.', async () => {
 
     const data = {accountIds: [1]};
     const state = getState(data);

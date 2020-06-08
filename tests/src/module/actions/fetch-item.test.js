@@ -94,7 +94,7 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(customer.id).toBe(id);
   });
 
-  test('Can dispatch with "id" and "include" by "state".', async () => {
+  test('Can dispatch with "id" and "include" state.', async () => {
 
     const action = fetchItem({
       client: api,
@@ -150,7 +150,7 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(customer.accounts.length).toBe(2);
   });
 
-  test('Can dispatch with "id" and "include" by "filter".', async () => {
+  test('Can dispatch with "id" and "include" filter.', async () => {
 
     const action = fetchItem({
       client: api,
@@ -201,7 +201,7 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(customer.accounts.length).toBe(2);
   });
 
-  test('Can dispatch with "id" and "fields" by "state".', async () => {
+  test('Can dispatch with "id" and "fields" state.', async () => {
 
     const action = fetchItem({
       client: api,
@@ -259,7 +259,7 @@ describe('Checking action FETCH_ITEM.', () => {
     expect(customer.emailList).toBeUndefined();
   });
 
-  test('Can dispatch with "id" and "fields" by "filter".', async () => {
+  test('Can dispatch with "id" and "fields" filter.', async () => {
 
     const action = fetchItem({
       client: api,

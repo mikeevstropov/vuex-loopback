@@ -6,7 +6,7 @@ import {createItem} from '@src/module/actions/create-item';
 
 describe('Checking action CREATE_ITEM.', () => {
 
-  test('Can dispatch with "include" by "state".', async () => {
+  test('Can dispatch with "include" state.', async () => {
 
     const action = createItem({
       client: api,
@@ -60,7 +60,7 @@ describe('Checking action CREATE_ITEM.', () => {
     expect(customer.accounts.length).toBe(1);
   });
 
-  test('Can dispatch with "include" by "filter".', async () => {
+  test('Can dispatch with "include" filter.', async () => {
 
     const action = createItem({
       client: api,
@@ -109,7 +109,7 @@ describe('Checking action CREATE_ITEM.', () => {
     expect(customer.accounts.length).toBe(1);
   });
 
-  test('Can dispatch with "fields" by "state".', async () => {
+  test('Can dispatch with "fields" state.', async () => {
 
     const action = createItem({
       client: api,
@@ -166,7 +166,7 @@ describe('Checking action CREATE_ITEM.', () => {
     expect(customer.emailList).toBeUndefined();
   });
 
-  test('Can dispatch with "fields" by "filter".', async () => {
+  test('Can dispatch with "fields" filter.', async () => {
 
     const action = createItem({
       client: api,

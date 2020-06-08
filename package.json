@@ -1,6 +1,6 @@
 {
   "name": "vuex-loopback",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "Vuex module factory for Loopback",
   "repository": "git@github.com:mikeevstropov/vuex-loopback.git",
   "author": "Mikhail Evstropov <mike.evstropov@gmail.com>",

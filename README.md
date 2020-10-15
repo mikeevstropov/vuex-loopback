@@ -232,7 +232,7 @@ export default {
       
       <!-- Edit Button -->
       <button
-        @click="() => $refs.editor.show(item)">
+        @click="() => $refs.editor.edit(item)">
         Edit
       </button>
       
@@ -247,7 +247,7 @@ export default {
     
     <!-- Create Button -->
     <button
-      @click="() => $refs.editor.show()">
+      @click="() => $refs.editor.edit()">
       Create
     </button>
     

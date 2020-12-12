@@ -88,7 +88,7 @@ Vuex module created by module factory has the state to interact with a single do
 
 #### Create a new document.
 
-Few steps above we had to provide the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
+Earlier, we provided the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
 
 ```javascript
 store.dispatch(

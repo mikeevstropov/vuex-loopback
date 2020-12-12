@@ -406,7 +406,7 @@ export default {
 </items-loader>
 ```
 
-## Vuex module structure
+## Module structure
 
 You may want to use Vuex module directly.  
 Let's see what it has.

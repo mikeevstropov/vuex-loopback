@@ -239,7 +239,7 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 \* *Component will load items automatically if prop `noAutoload` has not specified.*  
 \* *All properties and methods of slot scope are accessible by component reference (`ref` attribute).*
 
-#### Basic example
+### Basic example
 
 #### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript
@@ -304,7 +304,7 @@ You are able to create, update or remove collection item by built-in component `
 
 \* *All properties and methods of slot scope are accessible by component reference (`ref` attribute).*
 
-#### Basic example
+### Basic example
 
 #### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript

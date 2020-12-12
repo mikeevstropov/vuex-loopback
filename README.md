@@ -89,7 +89,7 @@ And a state of a multiple documents:
 
 - `items: object[] = []` - Fetched documents.
 
-It's a general part of [the state](#state).
+It's a general part of [module state](#state).
 
 #### Create a new document.
 

@@ -111,7 +111,7 @@ State of `tempItem` now is:
 
 #### Put the new document to database.
 
-By the action `PUT_TEMP_ITEM` we create a document in database, but if the same id has found, then the document will be updated.
+By the action `PUT_TEMP_ITEM` we create a document in database from `tempItem`, but if the same id has found, then the document will be updated.
 
 ```javascript
 await store.dispatch(

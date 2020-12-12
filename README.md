@@ -85,7 +85,7 @@ Create Vuex module has [the state](#state) to interact with a single document an
 - `item: object = null` - Persisted document.
 - `tempItem: object = null` - New or modified document.
 
-And the state of a document list.
+And the state of a multiple documents:
 
 - `items: object[] = []` - Loaded documents.
 

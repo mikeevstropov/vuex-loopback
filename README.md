@@ -126,7 +126,7 @@ await store.dispatch(
 
 *During request a state of `loading` is `true`.*
 
-After that we have a new state of `item` which contains persisted data, but the `tempItem` has updated too by a new `id` value.
+After that we have a new state of `item` which contains persisted data, but the `tempItem` has updated also (by a new `id` value).
 
 State of `item` and `tempItem` is:
 

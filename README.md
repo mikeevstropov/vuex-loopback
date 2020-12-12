@@ -114,7 +114,7 @@ State of `tempItem` now is:
 }
 ```
 
-By the action `PUT_TEMP_ITEM` the data of `tempItem` will be *created* or *updated* (if same an `id` exists) **in database**.
+By the action `PUT_TEMP_ITEM` the data of `tempItem` will be *created* or *updated* (if exists) in database.
 
 ```javascript
 await store.dispatch(

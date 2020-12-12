@@ -85,7 +85,7 @@ Created Vuex module has [the state](#state) to interact with a single document a
 - `item: object = null` - Persisted document.
 - `tempItem: object = null` - New or modified document.
 
-And a state field of a multiple documents:
+And a state of a multiple documents:
 
 - `items: object[] = []` - Fetched documents.
 

@@ -161,7 +161,7 @@ State of `item` and `tempItem` now is:
 
 ### Update persisted document.
 
-Before update a database, we need to modify the data of `tempItem`.
+Before update a database, we need to modify the data of `tempItem` which was fetched in the previous step.
 
 ```javascript
 const {tempItem} = store

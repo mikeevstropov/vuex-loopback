@@ -142,7 +142,7 @@ State of `item` and `tempItem` is:
 
 #### Fetch document by ID.
 
-An action `FETCH_ITEM` will update `item` and `tempItem` by fetched document.
+An action `FETCH_ITEM` will update `item` and `tempItem` by fetched data.
 
 ```javascript
 await store.dispatch(

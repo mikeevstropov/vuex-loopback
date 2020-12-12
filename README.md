@@ -126,7 +126,7 @@ await store.dispatch(
 
 *During request a state of `loading` is `true`.*
 
-After that we have a new state of `item` which contains persisted data, but the `tempItem` has updated also (by a new `id` value). So if you will change the state of `tempItem` then you can check differences between persisted data `item` and modified `tempItem`, and discard changes by [mutation](#mutations) `SET_TEMP_ITEM` to a previous value from `item` state.
+After that we have a new state of `item` which contains persisted data, but the `tempItem` has updated also (by a new `id` value). So if you will change the state of `tempItem` then you can check differences between persisted data `item` and modified `tempItem`, and discard changes by `SET_TEMP_ITEM` [mutation](#mutations) to a previous value from `item` state.
 
 State of `item` and `tempItem` is:
 

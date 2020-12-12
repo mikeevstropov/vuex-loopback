@@ -21,14 +21,14 @@ npm install axios vuex-loopback
 
 ## Create Vuex module
 
-##### 1. Import `axios` and module factory.
+#### 1. Import `axios` and module factory.
 
 ```javascript
 import axios from 'axios';
 import {createModule} from 'vuex-loopback';
 ```
 
-##### 2. Create `axios` instance with `baseURL` option.
+#### 2. Create `axios` instance with `baseURL` option.
 
 ```javascript
 const client = axios.create({
@@ -36,7 +36,7 @@ const client = axios.create({
 });
 ```
 
-##### 3. Define collection model with default fields.
+#### 3. Define collection model with default fields.
 
 ```javascript
 const model = {
@@ -46,7 +46,7 @@ const model = {
 }
 ```
 
-##### 4. Create Vuex module by the module factory.
+#### 4. Create Vuex module by the module factory.
 
 Before use built-in components `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `vlArticles` for the `Articles` collection.
 
@@ -78,7 +78,7 @@ new Vuex.Store({
 
 Let's manage `Articles` collection by the Vuex module.
 
-##### The state of a single item.
+#### The state of a single item.
 
 Vuex module created by module factory has the state to interact with a single document and a document list. The following fields used when you get, create or update a single item.
 
@@ -86,7 +86,7 @@ Vuex module created by module factory has the state to interact with a single do
 - `tempItem: object = null` - New or modified document.
 - `loading: boolean = false` - Loading state.
 
-##### Create a new document.
+#### Create a new document.
 
 Few steps above we had to provide the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
 
@@ -109,7 +109,7 @@ State of `tempItem` now is:
 }
 ```
 
-##### Put the new document to database.
+#### Put the new document to database.
 
 By the action `PUT_TEMP_ITEM` we create a document in database, but if the same id has found, then the document will be updated.
 
@@ -135,7 +135,7 @@ State of `item` and `tempItem`:
 
 *Type of generated ID is depends to your database.*
 
-##### Update the document.
+#### Update the document.
 
 Before update a database, we need to modify the state of `tempItem`.
 
@@ -173,12 +173,12 @@ Now your database and `item` state has updated by modified `tempItem`.
 ## Load items by Vue Component
 Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
 
-##### Props
+#### Props
 
 - `module: string` - Name of Vuex module.
 - `noAutoload: boolean` - Do not autoload items after mount.
 
-##### Scope of default slot
+#### Scope of default slot
 
 - `items: object[]` - Loaded items.
 - `loading: boolean` - Loading state.
@@ -194,12 +194,12 @@ Built-in component `ItemsLoader` will help you to load collection items right in
 
 #### Basic example
 
-##### 1. Import `ItemsLoader` from `vuex-loopback`.
+#### 1. Import `ItemsLoader` from `vuex-loopback`.
 ```javascript
 import {ItemsLoader} from 'vuex-loopback';
 ```
 
-##### 2. Define local component.
+#### 2. Define local component.
 ```javascript
 export default {
   // ...
@@ -210,7 +210,7 @@ export default {
 }
 ```
 
-##### 3. Use it to load collection items.
+#### 3. Use it to load collection items.
 ```html
 <!-- Loader -->
 <items-loader
@@ -241,12 +241,12 @@ export default {
 ## Manage an item by Vue Component
 You are able to create, update or remove collection item by built-in component `ItemEditor`. Same as above `ItemEditor` has a scope of default slot which provides specific methods and properties.
 
-##### Props
+#### Props
 
 - `module: string` - Name of Vuex module.
 - `extend: object` - Extend an item fields.
 
-##### Scope of default slot
+#### Scope of default slot
 
 - `item: object` - Selected item.
 - `loading: boolean` - Loading state.
@@ -259,13 +259,13 @@ You are able to create, update or remove collection item by built-in component `
 
 #### Basic example
 
-##### 1. Import `ItemEditor` from `vuex-loopback`.
+#### 1. Import `ItemEditor` from `vuex-loopback`.
 ```javascript
 import {ItemEditor} from 'vuex-loopback'; // new line
 import {ItemsLoader} from 'vuex-loopback';
 ```
 
-##### 2. Define local component.
+#### 2. Define local component.
 ```javascript
 export default {
   // ...
@@ -277,7 +277,7 @@ export default {
 }
 ```
 
-##### 3. Use it to create editor form.
+#### 3. Use it to create editor form.
 
 ```html
 <!-- Editor -->
@@ -316,7 +316,7 @@ export default {
 </item-editor>
 ```
 
-##### 4. Update items loader template.
+#### 4. Update items loader template.
 ```html
 <!-- Loader -->
 <items-loader
@@ -460,7 +460,7 @@ Let's see what it has.
 
 ## Tests
 
-##### 1. Clone `loopback-example-relations` and start web-server.
+#### 1. Clone `loopback-example-relations` and start web-server.
 ```
 git clone https://github.com/strongloop/loopback-example-relations.git
 cd loopback-example-relations
@@ -468,7 +468,7 @@ yarn
 yarn start
 ```
 
-##### 2. Clone `vuex-loopback` in a new terminal session and run the tests.
+#### 2. Clone `vuex-loopback` in a new terminal session and run the tests.
 ```
 git clone https://github.com/mikeevstropov/vuex-loopback.git
 cd vuex-loopback

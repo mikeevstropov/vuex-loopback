@@ -78,32 +78,20 @@ new Vuex.Store({
 
 Let's manage `Articles` collection by the Vuex module.
 
-#### The state of a single document.
+#### The state.
 
-Vuex module created by module factory has the state to interact with a single document and a document list. The following fields used when you get, create or update a single item.
+Vuex module created by module factory has the state to interact with a single document and a document list.
+
+The following fields will contain documents when you get, create or update a single item.
 
 - `item: object = null` - Persisted document.
 - `tempItem: object = null` - New or modified document.
 
-The state of a documents list.
+And the state of a document list.
 
 - `items: object[] = []` - Loaded documents.
-- `skip: number = 0` - Documents offset.
-- `limit: number = 20` - Documents limit.
-- `total: number = 0` - Total documents.
-- `orderBy: string = ''` - Sort by field.
-- `orderDesc: boolean = ''` - Sort descending.
-- `searchBy: string[] = ['name']` - Search by fields.
-- `searchQuery: string = ''` - Searching query.
-- `where: object = {}` - Fetching condition.
 
-Common state.
-
-- `loading: boolean = false` - Loading state.
-- `include: string[] = []` - Fetching relations.
-- `fields: string[] = []` - Fetching fields.
-
-But don't worry, you don't have to remember everything. Usually, when you're working with a single item, focus on `item` and `tempItem` state, and for lists - `items` state.
+It's a general part of [the state](#state).
 
 #### Create a new document.
 
@@ -418,7 +406,7 @@ export default {
 </items-loader>
 ```
 
-## Advanced usage
+## Vuex module structure
 
 You may want to use Vuex module directly.  
 Let's see what it has.

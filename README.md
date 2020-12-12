@@ -78,7 +78,7 @@ new Vuex.Store({
 
 Let's manage `Articles` collection by the Vuex module.
 
-#### The state.
+### The state.
 
 The following fields will contain data when you *get*, *create* or *update* a **single item**.
 
@@ -91,7 +91,7 @@ And a state of a **multiple items**:
 
 It's a general part of [module state](#state).
 
-#### Create a new document.
+### Create a new document.
 
 At [previous step](#4-create-vuex-module-by-the-module-factory) we provided the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
 
@@ -114,9 +114,7 @@ State of `tempItem` now is:
 }
 ```
 
-#### Put the new document to database.
-
-By the action `PUT_TEMP_ITEM` we create a document in database from `tempItem`, but if the same non-empty `id` has found, then the document will be updated.
+By the action `PUT_TEMP_ITEM` the data of `tempItem` will be *created* or *updated* (if same an `id` exists) **in database**.
 
 ```javascript
 await store.dispatch(
@@ -140,7 +138,7 @@ After that we have a new state of `item` which contains persisted data, but the 
 
 *Type of generated ID is depends to your database.*
 
-#### Fetch document by ID.
+### Fetch document by ID.
 
 An action `FETCH_ITEM` will update `item` and `tempItem` by fetched data.
 
@@ -161,7 +159,7 @@ State of `item` and `tempItem` is:
 }
 ```
 
-#### Update persisted document.
+### Update persisted document.
 
 Before update a database, we need to modify the data of `tempItem`.
 
@@ -196,7 +194,7 @@ await store.dispatch(
 
 Now your database and `item` state has updated by modified `tempItem`.
 
-#### Remove document by ID.
+### Remove document by ID.
 
 An action `REMOVE_ITEM` will remove a document from database.
 

@@ -135,7 +135,7 @@ State of `item` and `tempItem` is:
 
 *Type of generated ID is depends to your database.*
 
-#### Update the document.
+#### Update persisted document.
 
 Before update a database, we need to modify the state of `tempItem`.
 

@@ -78,13 +78,32 @@ new Vuex.Store({
 
 Let's manage `Articles` collection by the Vuex module.
 
-#### The state of a single item.
+#### The state of a single document.
 
 Vuex module created by module factory has the state to interact with a single document and a document list. The following fields used when you get, create or update a single item.
 
 - `item: object = null` - Persisted document.
 - `tempItem: object = null` - New or modified document.
+
+The state of a documents list.
+
+- `items: object[] = []` - Loaded documents.
+- `skip: number = 0` - Documents offset.
+- `limit: number = 20` - Documents limit.
+- `total: number = 0` - Total documents.
+- `orderBy: string = ''` - Sort by field.
+- `orderDesc: boolean = ''` - Sort descending.
+- `searchBy: string[] = ['name']` - Search by fields.
+- `searchQuery: string = ''` - Searching query.
+- `where: object = {}` - Fetching condition.
+
+Common state.
+
 - `loading: boolean = false` - Loading state.
+- `include: string[] = []` - Fetching relations.
+- `fields: string[] = []` - Fetching fields.
+
+But don't worry, you don't have to remember everything. Usually, when you're working with a single item, focus on `item` and `tempItem` state, and for lists - `items` state.
 
 #### Create a new document.
 
@@ -135,7 +154,7 @@ State of `item` and `tempItem` is:
 
 *Type of generated ID is depends to your database.*
 
-#### Fetch document by identifier.
+#### Fetch document by ID.
 
 An action `FETCH_ITEM` will update `item` and `tempItem` by fetched document.
 
@@ -190,6 +209,27 @@ await store.dispatch(
 ```
 
 Now your database and `item` state has updated by modified `tempItem`.
+
+#### Remove document by ID.
+
+An action `REMOVE_ITEM` will remove a document from database, then remove it from the state of `item` and `items`.
+
+```javascript
+await store.dispatch(
+  'vlArticles/REMOVE_ITEM',
+  '5fd491fceea2be937cb838fc',
+);
+```
+
+State of `item` and `tempItem` is:
+
+```json
+{
+  "id": "5fd491fceea2be937cb838fc",
+  "title": "My Article",
+  "body": ""
+}
+```
 
 ## Load items by Vue Component
 Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.

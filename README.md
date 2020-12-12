@@ -72,7 +72,7 @@ new Vuex.Store({
 });
 ```
 
-It's recommended to prefer `vl` prefix of a module name to mark module as created by `vuex-loopback`.
+It's recommended to prefer `vl` prefix of a module name to mark a module as created by `vuex-loopback`.
 
 ## Vuex module usage
 

@@ -80,7 +80,7 @@ Let's manage `Articles` collection by the Vuex module.
 
 #### The state.
 
-Created Vuex module has [the state](#state) to interact with a single document and a document list. The following fields will contain data when you *get*, *create* or *update* a single item.
+Created Vuex module has [the state](#state) of single document and a document list. The following fields will contain data when you *get*, *create* or *update* a single item.
 
 - `item: object = null` - Persisted document.
 - `tempItem: object = null` - New or modified document.
@@ -93,7 +93,7 @@ It's a general part of module state.
 
 #### Create a new document.
 
-At previous step we provided the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
+At [previous step](#4-create-vuex-module-by-the-module-factory) we provided the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
 
 ```javascript
 store.dispatch(

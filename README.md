@@ -140,7 +140,7 @@ After that, we have a new state of `item` which contains persisted data, but the
 
 ### Fetch document by ID.
 
-An action `FETCH_ITEM` will update `item` and `tempItem` by fetched data.
+An action `FETCH_ITEM` will update `item` and `tempItem` state by fetched data.
 
 ```javascript
 await store.dispatch(

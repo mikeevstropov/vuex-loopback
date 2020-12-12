@@ -198,7 +198,7 @@ Now your database and `item` state has updated by modified `tempItem`.
 
 #### Remove document by ID.
 
-An action `REMOVE_ITEM` will remove a document from database, then remove it from the state of `item` and `items`.
+An action `REMOVE_ITEM` will remove a document from database.
 
 ```javascript
 await store.dispatch(
@@ -206,6 +206,8 @@ await store.dispatch(
   '5fd491fceea2be937cb838fc',
 );
 ```
+
+After success, the removed item will be removed from the `item` and `items` state automatically.
 
 ## Load items by Vue Component
 Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.

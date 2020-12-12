@@ -123,7 +123,7 @@ await store.dispatch(
 
 After that we have a new state of `item` which contains persisted data, but the `tempItem` has updated too by a new `id` value.
 
-State of `item` and `tempItem`:
+State of `item` and `tempItem` is:
 
 ```json
 {

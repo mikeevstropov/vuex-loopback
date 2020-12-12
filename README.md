@@ -93,7 +93,7 @@ It's a general part of [module state](#state).
 
 ### Create a new document.
 
-At [previous step](#4-create-vuex-module-by-the-module-factory) we provided the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
+In the [previous step](#4-create-vuex-module-by-the-module-factory) we provided the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
 
 ```javascript
 store.dispatch(

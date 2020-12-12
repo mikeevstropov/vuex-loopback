@@ -124,7 +124,7 @@ await store.dispatch(
 
 *During request a state of `loading` is `true`.*
 
-State of `item` and `tempItem` is:
+State of `item` and `tempItem` now is:
 
 ```json
 {

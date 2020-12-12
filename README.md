@@ -10,7 +10,7 @@
 
 ## Installing
 
-##### 1. Install `axios` and `vuex-loopback`.
+Install `axios` and `vuex-loopback`.
 ```
 yarn add axios vuex-loopback
 ```
@@ -19,14 +19,16 @@ or via `npm`
 npm install axios vuex-loopback
 ```
 
-##### 2. Import `axios` and module factory.
+## Create Vuex module
+
+##### 1. Import `axios` and module factory.
 
 ```javascript
 import axios from 'axios';
 import {createModule} from 'vuex-loopback';
 ```
 
-##### 3. Create `axios` instance with `baseURL` option.
+##### 2. Create `axios` instance with `baseURL` option.
 
 ```javascript
 const client = axios.create({
@@ -34,25 +36,26 @@ const client = axios.create({
 });
 ```
 
-## Create Vuex module
-Before use built-in components `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `articles` for the `Articles` collection.
-
-##### 1. Define collection model with default fields.
+##### 3. Define collection model with default fields.
 
 ```javascript
 const model = {
   id: '',
-  name: '',
+  title: '',
+  body: '',
 }
 ```
 
-##### 2. Use module factory to create Vuex module.
+##### 4. Create Vuex module by the module factory.
+
+Before use built-in components `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `vlArticles` for the `Articles` collection.
+
 ```javascript
 
 new Vuex.Store({
   modules: {
     // ...
-    articles: {
+    vlArticles: {
       namespaced: true,
       ...createModule({
         client,                 // (required) Axios instance.
@@ -69,7 +72,105 @@ new Vuex.Store({
 });
 ```
 
-## Load items
+It's recommended to prefer `vl` prefix of a module name to mark it as created by `vuex-loopback`.
+
+## Vuex module usage
+
+Let's manage `Articles` collection by the Vuex module.
+
+##### The state of a single item.
+
+Vuex module created by module factory has the state to interact with a single document and a document list. The following fields used when you get, create or update a single item.
+
+- `item: object = null` - Persisted document.
+- `tempItem: object = null` - New or modified document.
+- `loading: boolean = false` - Loading state.
+
+##### Create a new document.
+
+Few steps above we had to provide the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
+
+```javascript
+store.dispatch(
+  'vlArticles/CREATE_TEMP_ITEM',
+  {title: 'My Article'},
+);
+```
+
+*The second argument is not required but you can patch the data of new document.*
+
+State of `tempItem` now is:
+
+```json
+{
+  "id": "",
+  "title": "My Article",
+  "body": ""
+}
+```
+
+##### Put the new document to database.
+
+By the action `PUT_TEMP_ITEM` we create a document in database, but if the same id has found, then the document will be updated.
+
+```javascript
+await store.dispatch(
+  'vlArticles/PUT_TEMP_ITEM',
+);
+```
+
+*During request a state of `loading` is `true`.*
+
+After that we have a new state of `item` which contains persisted data, but the `tempItem` has updated too (a new `id` value).
+
+State of `item` and `tempItem`:
+
+```json
+{
+  "id": "5fd491fceea2be937cb838fc",
+  "title": "My Article",
+  "body": ""
+}
+```
+
+*Type of generated ID is depends to your database.*
+
+##### Update the document.
+
+Before update a database, we need to modify the state of `tempItem`.
+
+```javascript
+const {tempItem} = store
+  .state
+  .vlArticles;
+
+store.commit('vlArticles/SET_TEMP_ITEM', {
+  ...tempItem,
+  body: 'Article body',
+});
+```
+
+State of `tempItem` now has a new `body` value:
+
+```json
+{
+  "id": "5fd491fceea2be937cb838fc",
+  "title": "My Article",
+  "body": "Article body"
+}
+```
+
+Do commit changes by `PUT_TEMP_ITEM` action.
+
+```javascript
+await store.dispatch(
+  'vlArticles/PUT_TEMP_ITEM',
+);
+```
+
+Now your database and `item` state has updated by modified `tempItem`.
+
+## Load items by Vue Component
 Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
 
 ##### Props
@@ -113,7 +214,7 @@ export default {
 ```html
 <!-- Loader -->
 <items-loader
-  module="articles">
+  module="vlArticles">
 
   <template
     slot-scope="{items, hasMore, loadMore}">
@@ -122,7 +223,7 @@ export default {
     <div
       :key="item.id"
       v-for="item in items">
-      {{ item.name }}
+      {{ item.title }}
     </div>
     
     <!-- More Button -->
@@ -137,7 +238,7 @@ export default {
 </items-loader>
 ```
 
-## Manage an item
+## Manage an item by Vue Component
 You are able to create, update or remove collection item by built-in component `ItemEditor`. Same as above `ItemEditor` has a scope of default slot which provides specific methods and properties.
 
 ##### Props
@@ -182,7 +283,7 @@ export default {
 <!-- Editor -->
 <item-editor
   ref="editor"
-  module="articles">
+  module="vlArticles">
   
   <template
     slot-scope="{item, set, save, remove}">
@@ -190,10 +291,10 @@ export default {
     <form
       @submit.prevent="save">
       
-      <!-- Name Field -->
+      <!-- Title Field -->
       <input
-        :value="item.name"
-        @input="set({...item, name: $event})"/>
+        :value="item.title"
+        @input="set({...item, title: $event})"/>
 
       <!-- Save Button -->
       <button
@@ -219,7 +320,7 @@ export default {
 ```html
 <!-- Loader -->
 <items-loader
-  module="articles">
+  module="vlArticles">
 
   <template
     slot-scope="{items, hasMore, loadMore}">
@@ -228,7 +329,7 @@ export default {
     <div
       :key="item.id"
       v-for="item in items">
-      {{ item.name }}
+      {{ item.title }}
       
       <!-- Edit Button -->
       <button

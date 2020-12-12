@@ -80,9 +80,7 @@ Let's manage `Articles` collection by the Vuex module.
 
 #### The state.
 
-Vuex module created by module factory has the state to interact with a single document and a document list.
-
-The following fields will contain documents when you get, create or update a single item.
+Vuex module created by module factory has [the state](#state) to interact with a single document and a document list. The following fields will contain documents when you get, create or update a single item.
 
 - `item: object = null` - Persisted document.
 - `tempItem: object = null` - New or modified document.

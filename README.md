@@ -135,9 +135,30 @@ State of `item` and `tempItem` is:
 
 *Type of generated ID is depends to your database.*
 
+#### Fetch document by identifier.
+
+An action `FETCH_ITEM` will update `item` and `tempItem` by fetched document.
+
+```javascript
+await store.dispatch(
+  'vlArticles/FETCH_ITEM',
+  {id: '5fd491fceea2be937cb838fc'},
+);
+```
+
+State of `item` and `tempItem` is:
+
+```json
+{
+  "id": "5fd491fceea2be937cb838fc",
+  "title": "My Article",
+  "body": ""
+}
+```
+
 #### Update persisted document.
 
-Before update a database, we need to modify the state of `tempItem`.
+Before update a database, we need to modify the data of `tempItem`.
 
 ```javascript
 const {tempItem} = store

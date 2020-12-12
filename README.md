@@ -149,7 +149,7 @@ await store.dispatch(
 );
 ```
 
-State of `item` and `tempItem` is:
+State of `item` and `tempItem` now is:
 
 ```json
 {

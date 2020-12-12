@@ -207,16 +207,6 @@ await store.dispatch(
 );
 ```
 
-State of `item` and `tempItem` is:
-
-```json
-{
-  "id": "5fd491fceea2be937cb838fc",
-  "title": "My Article",
-  "body": ""
-}
-```
-
 ## Load items by Vue Component
 Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.
 

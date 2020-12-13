@@ -134,7 +134,7 @@ After that, we have a new state of `item` which contains persisted data, but the
 
 *Type of generated ID is depends to your database.*
 
-### Fetch multiple items
+### Fetch items
 
 Create another one article.
 
@@ -178,7 +178,7 @@ State of `items` is:
 
 The `FETCH_ITEMS` action will request an items by conditions defined in [the state](#state) which you can set by [mutations](#mutations).
 
-### Fetch by ID
+### Fetch item by ID
 
 An action `FETCH_ITEM` will update `item` and `tempItem` state by fetched data.
 

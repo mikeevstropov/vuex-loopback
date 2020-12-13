@@ -78,20 +78,20 @@ new Vuex.Store({
 
 Let's manage `Articles` collection by the Vuex module.
 
-### The state.
+### The state
 
 The following fields will contain data when you *get*, *create* or *update* a **single item**.
 
-- `item: object = null` - Persisted document.
-- `tempItem: object = null` - New or modified document.
+- `item: object = null` - Persisted item.
+- `tempItem: object = null` - New or modified item.
 
 And a state of a **multiple items**:
 
-- `items: object[] = []` - Fetched documents.
+- `items: object[] = []` - Fetched items.
 
 It's a general part of [module state](#state).
 
-### Create a new document.
+### Create item
 
 In the [previous step](#4-create-vuex-module-by-the-module-factory) we provided the model with default fields to the module factory. An action `CREATE_TEMP_ITEM` will create a new item by this model automatically (only `tempItem` state, not in database).
 
@@ -102,7 +102,7 @@ store.dispatch(
 );
 ```
 
-*The second argument is not required but you can patch the data of new document.*
+*The second argument is not required but you can patch the data of new item.*
 
 State of `tempItem` now is:
 
@@ -138,7 +138,7 @@ After that, we have a new state of `item` which contains persisted data, but the
 
 *Type of generated ID is depends to your database.*
 
-### Fetch multiple documents.
+### Fetch multiple items
 
 Create another one article.
 
@@ -153,7 +153,7 @@ await store.dispatch(
 );
 ```
 
-Dispatch an action `FETCH_ITEMS` to get a list of documents in `items` state.
+Dispatch an action `FETCH_ITEMS` to get an array in `items` state.
 
 ```javascript
 await store.dispatch(
@@ -163,7 +163,7 @@ await store.dispatch(
 
 *Use a second argument to provide fetching [options](#actions).*
 
-State of `items` is an array of documents:
+State of `items` is:
 
 ```json
 [
@@ -180,9 +180,9 @@ State of `items` is an array of documents:
 ]
 ```
 
-The `FETCH_ITEMS` action will request a documents by conditions defined in [the state](#state) which you can set by [mutations](#mutations).
+The `FETCH_ITEMS` action will request an items by conditions defined in [the state](#state) which you can set by [mutations](#mutations).
 
-### Fetch document by ID.
+### Fetch by ID
 
 An action `FETCH_ITEM` will update `item` and `tempItem` state by fetched data.
 
@@ -203,7 +203,7 @@ State of `item` and `tempItem` now is:
 }
 ```
 
-### Update persisted document.
+### Update item
 
 Before update a database, we need to modify the data of `tempItem` which was fetched in the previous step.
 
@@ -238,9 +238,9 @@ await store.dispatch(
 
 Now your database and `item` state has updated by modified `tempItem`.
 
-### Remove document by ID.
+### Remove item
 
-An action `REMOVE_ITEM` will remove a document from database.
+An action `REMOVE_ITEM` will remove an item from database.
 
 ```javascript
 await store.dispatch(

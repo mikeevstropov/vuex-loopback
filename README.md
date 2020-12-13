@@ -76,10 +76,6 @@ new Vuex.Store({
 
 ## Vuex module usage
 
-Let's manage `Articles` collection by the Vuex module.
-
-### The state
-
 The following fields will contain data when you *get*, *create* or *update* a **single item**.
 
 - `item: object = null` - Persisted item.

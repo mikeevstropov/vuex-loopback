@@ -138,6 +138,50 @@ After that, we have a new state of `item` which contains persisted data, but the
 
 *Type of generated ID is depends to your database.*
 
+#### Fetch multiple documents.
+
+Create another one article.
+
+```javascript
+store.dispatch(
+  'vlArticles/CREATE_TEMP_ITEM',
+  {title: 'Second Article'}
+);
+
+await store.dispatch(
+  'vlArticles/PUT_TEMP_ITEM'
+);
+```
+
+Dispatch an action `FETCH_ITEMS` to get a list of documents in `items` state field.
+
+```javascript
+await store.dispatch(
+  'vlArticles/FETCH_ITEMS',
+);
+```
+
+*Use a second argument to provide fetching [options](#actions).*
+
+State of `items` is an array of documents:
+
+```json
+[
+  {
+    "id": "5fd491fceea2be937cb838fc",
+    "title": "My Article",
+    "body": ""
+  },
+  {
+    "id": "5fd491fceea2be937cb838fb",
+    "title": "Second Article",
+    "body": ""
+  }
+]
+```
+
+The `FETCH_ITEMS` action will request a documents by conditions defined in [the state](#state) which you can set by [mutations](#mutations).
+
 ### Fetch document by ID.
 
 An action `FETCH_ITEM` will update `item` and `tempItem` state by fetched data.

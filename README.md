@@ -153,7 +153,7 @@ await store.dispatch(
 );
 ```
 
-Dispatch an action `FETCH_ITEMS` to get a list of documents in `items` state field.
+Dispatch an action `FETCH_ITEMS` to get a list of documents in `items` state.
 
 ```javascript
 await store.dispatch(

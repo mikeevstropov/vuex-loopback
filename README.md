@@ -138,7 +138,7 @@ After that, we have a new state of `item` which contains persisted data, but the
 
 *Type of generated ID is depends to your database.*
 
-#### Fetch multiple documents.
+### Fetch multiple documents.
 
 Create another one article.
 

@@ -245,7 +245,7 @@ await store.dispatch(
 );
 ```
 
-*The item will be removed from the module state automatically.*
+*The item will be removed from the state automatically.*
 
 ## Load items by Vue Component
 Built-in component `ItemsLoader` will help you to load collection items right in Vue template. A scope of default slot has some usefull methods and properties to create items list with *lazy-load* or *pagination* behaviours.

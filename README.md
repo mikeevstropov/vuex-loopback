@@ -224,7 +224,7 @@ State of `tempItem` now has a new `body` value:
 }
 ```
 
-Do commit changes by `PUT_TEMP_ITEM` action.
+Commit changes by `PUT_TEMP_ITEM` action.
 
 ```javascript
 await store.dispatch(

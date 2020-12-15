@@ -48,7 +48,7 @@ const model = {
 
 #### 4. Create Vuex module by the module factory.
 
-Before use built-in components `ItemsLoader` and `ItemEditor` you need to create Vuex modules for each Loopback collections that you want to manage. For example we will create named module `vlArticles` for the `Articles` collection.
+Before use built-in components `ItemsLoader` and `ItemEditor` you need to create the Vuex module of Loopback collection which you want to manage. For example we will create a named module `vlArticles` of `Articles` collection.
 
 ```javascript
 
@@ -72,7 +72,7 @@ new Vuex.Store({
 });
 ```
 
-*It's recommended to prefer `vl` prefix of a module name to mark that module is created by `vuex-loopback`.*
+*It's recommended to prefer `vl` prefix of a module name to mark this module is created by `vuex-loopback`.*
 
 ## Vuex module usage
 
@@ -98,7 +98,7 @@ store.dispatch(
 );
 ```
 
-*The second argument is not required but you can patch the data of new item.*
+*The second argument is not required but you can patch data of new item.*
 
 State of `tempItem` now is:
 
@@ -110,7 +110,7 @@ State of `tempItem` now is:
 }
 ```
 
-By the action `PUT_TEMP_ITEM` the data of `tempItem` will be *created* or *updated* (if exists) in database.
+By an action `PUT_TEMP_ITEM` the data of `tempItem` will be *created* or *updated* (if exists) in database.
 
 ```javascript
 await store.dispatch(

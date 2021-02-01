@@ -50,6 +50,7 @@
     "object-curly-spacing": "off",
     "no-unused-expressions": "off",
     "no-prototype-builtins": "off",
-    "nonblock-statement-body-position": "off"
+    "nonblock-statement-body-position": "off",
+    "no-multiple-empty-lines": ["error", {"max": 1, "maxBOF": 1}]
   }
 }

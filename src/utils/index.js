@@ -57,6 +57,10 @@ export function searchStateToFilter(state, filter) {
     fields.forEach(field => {
 
       or.push({
+        [field]: word,
+      });
+
+      or.push({
         [field]: {
           like: word,
           options: 'i',

@@ -13,7 +13,6 @@ describe('Checking action FETCH_PAGE.', () => {
     const commit = jest.fn(() => {});
     const dispatch = jest.fn(() => {});
 
-
     await action(
       {state, commit, dispatch},
       {page},

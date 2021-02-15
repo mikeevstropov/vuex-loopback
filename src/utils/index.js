@@ -68,7 +68,7 @@ export function searchStateToFilter(state, filter) {
       });
     });
 
-    const number = parseInt(word, 10);
+    const number = Number(word);
 
     if (!Number.isNaN(number))
       fields.forEach(

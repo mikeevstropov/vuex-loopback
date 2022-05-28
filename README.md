@@ -461,6 +461,7 @@ Let's see what it has.
 - `page: number` - Number of current page.
 - `totalPages: number` - Number of total pages.
 - `hasMore: boolean` - Can we load more? (lazy loading)
+- `itemChanged: boolean` - State of `item` and `tempItem` is not the same.
 
 #### Mutations
 

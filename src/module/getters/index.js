@@ -1,3 +1,4 @@
+import isEqual from 'lodash/isEqual';
 
 export function createGetters({
   extension = {},
@@ -17,6 +18,10 @@ export function createGetters({
     hasMore(state) {
 
       return state.total > state.skip + state.limit;
+    },
+    itemChanged(state) {
+
+      return !isEqual(state.item, state.tempItem);
     },
 
     // Extension.
